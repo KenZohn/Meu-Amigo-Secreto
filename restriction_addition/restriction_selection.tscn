@@ -1,0 +1,229 @@
+[gd_scene format=3 uid="uid://chaljok4a67uc"]
+
+[ext_resource type="Script" uid="uid://dvi6po6xj3h7g" path="res://restriction_addition/restriction_selection.gd" id="1_7jqmd"]
+[ext_resource type="Texture2D" uid="uid://ddf515ueuikpa" path="res://asset/Sprout Lands - UI Pack - Basic pack/Sprite sheets/Sprite sheet for Basic Pack.png" id="1_31o30"]
+[ext_resource type="PackedScene" uid="uid://dk68n4r6i6ay3" path="res://HUD/button.tscn" id="2_7jqmd"]
+[ext_resource type="Texture2D" uid="uid://d0efv5dllq8ln" path="res://asset/Sprout Lands - UI Pack - Basic pack/emojis-free/Emoji_Spritesheet_Free.png" id="3_6j1id"]
+[ext_resource type="Texture2D" uid="uid://b8cdgtfb5pw3a" path="res://asset/Sprout Lands - UI Pack - Basic pack/emojis-free/speech_bubble_grey.png" id="4_v052u"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wxqf4"]
+atlas = ExtResource("3_6j1id")
+region = Rect2(64, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wwxy2"]
+atlas = ExtResource("3_6j1id")
+region = Rect2(64, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_72nfv"]
+atlas = ExtResource("3_6j1id")
+region = Rect2(96, 128, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ko8gk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wxqf4")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wwxy2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_72nfv")
+}],
+"loop": 1,
+"name": &"talk",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6j1id"]
+atlas = ExtResource("1_31o30")
+region = Rect2(59, 59, 26, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4gdar"]
+atlas = ExtResource("1_31o30")
+region = Rect2(257, 65, 14, 14)
+
+[node name="RestrictionSelection" type="CanvasLayer" unique_id=946059619]
+script = ExtResource("1_7jqmd")
+
+[node name="Background" type="ColorRect" parent="." unique_id=619404125]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.78431374)
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1692557420]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="CenterContainer" unique_id=1158102282]
+layout_mode = 2
+
+[node name="Balloon" type="Control" parent="CenterContainer/Control" unique_id=2097000122]
+anchors_preset = 0
+offset_left = -164.0
+offset_top = -152.0
+offset_right = 164.0
+offset_bottom = -116.0
+
+[node name="Panel" type="NinePatchRect" parent="CenterContainer/Control/Balloon" unique_id=350125433]
+layout_mode = 0
+offset_left = 2.0
+offset_right = 38.0
+offset_bottom = 36.0
+texture = ExtResource("1_31o30")
+region_rect = Rect2(59, 59, 26, 26)
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CenterContainer/Control/Balloon/Panel" unique_id=159557593]
+position = Vector2(18, 18.000002)
+scale = Vector2(0.9375, 0.9375)
+sprite_frames = SubResource("SpriteFrames_ko8gk")
+animation = &"talk"
+
+[node name="Bubble" type="NinePatchRect" parent="CenterContainer/Control/Balloon" unique_id=1396112648]
+layout_mode = 0
+offset_left = 326.0
+offset_right = 362.0
+offset_bottom = 284.0
+rotation = 1.5707964
+texture = ExtResource("4_v052u")
+region_rect = Rect2(11, 11, 42, 47)
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 10
+
+[node name="Label" type="Label" parent="CenterContainer/Control/Balloon/Bubble" unique_id=660084565]
+layout_mode = 1
+offset_left = 6.000012
+offset_top = 270.0
+offset_right = 267.0
+offset_bottom = 294.0
+rotation = -1.5707964
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 15
+text = "Quem essa pessoa não pode tirar?"
+vertical_alignment = 1
+
+[node name="Panel" type="NinePatchRect" parent="CenterContainer/Control" unique_id=370102455]
+custom_minimum_size = Vector2(280, 264)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -148.0
+offset_top = -112.0
+offset_right = 148.0
+offset_bottom = 152.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_31o30")
+region_rect = Rect2(201, 9, 30, 30)
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="ColorRect" type="ColorRect" parent="CenterContainer/Control/Panel" unique_id=2073210351]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 7.0
+offset_right = 289.0
+offset_bottom = 257.0
+color = Color(0.78431374, 0.6313726, 0.4627451, 1)
+
+[node name="Control" type="Control" parent="CenterContainer/Control/Panel" unique_id=648424551]
+anchors_preset = 0
+offset_left = 28.0
+offset_top = 16.0
+offset_right = 268.0
+offset_bottom = 48.0
+
+[node name="Background" type="NinePatchRect" parent="CenterContainer/Control/Panel/Control" unique_id=16227861]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_31o30")
+region_rect = Rect2(107, 11, 26, 26)
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="Number" type="Label" parent="CenterContainer/Control/Panel/Control" unique_id=952010381]
+layout_mode = 0
+offset_left = 8.0
+offset_right = 40.0
+offset_bottom = 32.0
+theme_override_constants/outline_size = 3
+text = "1."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Name" type="Label" parent="CenterContainer/Control/Panel/Control" unique_id=1262983941]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 4.0
+offset_right = 226.0
+offset_bottom = 28.0
+theme_override_constants/outline_size = 3
+text = "Name"
+vertical_alignment = 1
+text_overrun_behavior = 5
+
+[node name="PlayersArea" type="NinePatchRect" parent="CenterContainer/Control/Panel" unique_id=977572620]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 56.0
+offset_right = 280.0
+offset_bottom = 208.0
+texture = SubResource("AtlasTexture_6j1id")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CenterContainer/Control/Panel/PlayersArea" unique_id=450983049]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+vertical_scroll_mode = 2
+
+[node name="SelectionContainer" type="VBoxContainer" parent="CenterContainer/Control/Panel/PlayersArea/ScrollContainer" unique_id=553923789]
+layout_mode = 2
+
+[node name="ConfirmButton" parent="CenterContainer/Control/Panel" unique_id=763707274 instance=ExtResource("2_7jqmd")]
+layout_mode = 0
+offset_left = 248.0
+offset_top = 216.0
+offset_right = 280.0
+offset_bottom = 248.0
+button_icon = SubResource("AtlasTexture_4gdar")
+
+[connection signal="pressed" from="CenterContainer/Control/Panel/ConfirmButton" to="." method="_on_confirm_button_pressed"]

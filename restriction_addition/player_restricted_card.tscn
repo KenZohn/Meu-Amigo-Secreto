@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://cassxd6751yl7"]
+
+[ext_resource type="Texture2D" uid="uid://ddf515ueuikpa" path="res://asset/Sprout Lands - UI Pack - Basic pack/Sprite sheets/Sprite sheet for Basic Pack.png" id="2_j5swx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x7t68"]
+atlas = ExtResource("2_j5swx")
+region = Rect2(688, 224, 16, 16)
+
+[node name="PlayerRestricted" type="Control" unique_id=207675311]
+custom_minimum_size = Vector2(240, 28)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 240.0
+offset_bottom = 28.0
+
+[node name="Background" type="NinePatchRect" parent="." unique_id=1699747801]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_j5swx")
+region_rect = Rect2(107, 59, 26, 26)
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="Name" type="Label" parent="." unique_id=872581163]
+layout_mode = 0
+offset_left = 34.0
+offset_top = 4.0
+offset_right = 220.0
+offset_bottom = 24.0
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 14
+text = "NAME"
+vertical_alignment = 1
+text_overrun_behavior = 5
+
+[node name="Icon" type="TextureRect" parent="." unique_id=868331798]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 4.0
+offset_right = 28.0
+offset_bottom = 24.0
+texture = SubResource("AtlasTexture_x7t68")
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]

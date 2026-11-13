@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://ih5hhtpah2iu"]
+
+[ext_resource type="Script" uid="uid://bg8tr8xd6tu7b" path="res://player_addition/player_card.gd" id="1_xwtd4"]
+[ext_resource type="Texture2D" uid="uid://ddf515ueuikpa" path="res://asset/Sprout Lands - UI Pack - Basic pack/Sprite sheets/Sprite sheet for Basic Pack.png" id="2_ifo2u"]
+[ext_resource type="PackedScene" uid="uid://dk68n4r6i6ay3" path="res://HUD/button.tscn" id="3_owv5i"]
+[ext_resource type="Texture2D" uid="uid://bt1njoc0eeqly" path="res://asset/Sprout Lands - UI Pack - Basic pack/Sprite sheets/Icons/All Icons.png" id="4_ppig5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8fjqf"]
+atlas = ExtResource("4_ppig5")
+region = Rect2(208, 32, 16, 16)
+
+[node name="Player" type="Control" unique_id=207675311]
+custom_minimum_size = Vector2(264, 32)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 264.0
+offset_bottom = 32.0
+script = ExtResource("1_xwtd4")
+
+[node name="Background" type="NinePatchRect" parent="." unique_id=1699747801]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_ifo2u")
+region_rect = Rect2(107, 107, 26, 26)
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="Number" type="Label" parent="." unique_id=299404982]
+layout_mode = 0
+offset_left = 8.0
+offset_right = 40.0
+offset_bottom = 32.0
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 16
+text = "1."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Name" type="LineEdit" parent="." unique_id=1694665806]
+custom_maximum_size = Vector2(-1, 20)
+layout_mode = 0
+offset_left = 40.0
+offset_top = 6.0
+offset_right = 226.0
+offset_bottom = 30.0
+theme_override_font_sizes/font_size = 16
+max_length = 15
+
+[node name="Button" parent="." unique_id=763707274 instance=ExtResource("3_owv5i")]
+layout_mode = 0
+offset_left = 234.0
+offset_top = 6.0
+offset_right = 254.0
+offset_bottom = 26.0
+button_icon = SubResource("AtlasTexture_8fjqf")
+
+[connection signal="text_changed" from="Name" to="." method="_on_name_text_changed"]
+[connection signal="text_submitted" from="Name" to="." method="_on_name_text_submitted"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

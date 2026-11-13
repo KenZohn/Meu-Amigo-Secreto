@@ -29,6 +29,7 @@ extends Button
 
 @export var pressed_texture: Texture2D
 
+
 func _ready() -> void:
 	$Label.text = button_text
 	$Label.visible = button_icon == null
@@ -36,10 +37,12 @@ func _ready() -> void:
 	$MarginContainer/Icon.texture = button_icon
 	$MarginContainer/Icon.visible = button_icon != null
 
+
 func _on_button_up() -> void:
 	$Background.texture = normal_texture
 	$Label.position.y -= 2
 	$MarginContainer/Icon.position.y -= 2
+
 
 func _on_button_down() -> void:
 	$Background.texture = pressed_texture

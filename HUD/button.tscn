@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dk68n4r6i6ay3"]
 
-[ext_resource type="Script" uid="uid://mxiqqsqe0w6u" path="res://button.gd" id="2_n4tde"]
+[ext_resource type="Script" uid="uid://mxiqqsqe0w6u" path="res://HUD/button.gd" id="2_n4tde"]
 [ext_resource type="Texture2D" uid="uid://wyhfkuuhturj" path="res://asset/Sprout Lands - UI Pack - Basic pack/Sprite sheets/buttons/Square Buttons 26x26.png" id="2_vxja4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_n4tde"]

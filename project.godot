@@ -10,10 +10,15 @@ config_version=5
 
 [application]
 
-config/name="Meu Amigo Oculto"
-run/main_scene="uid://dv27v61khfmrs"
-config/features=PackedStringArray("4.6", "GL Compatibility")
+config/name="Meu Amigo Secreto"
+run/main_scene="uid://dtlb8sata2n5y"
+config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Scene="*uid://dvq0ppwgdscsf"
+PlayerManager="*uid://bw2t1knw8xyjg"
 
 [display]
 
@@ -24,7 +29,7 @@ window/stretch/aspect="expand"
 
 [gui]
 
-theme/custom_font="uid://ciradawywmt8v"
+theme/custom_font="uid://ddk88hgr37t1f"
 
 [physics]
 

@@ -1,0 +1,224 @@
+[gd_scene format=3 uid="uid://1qrx1ek42hui"]
+
+[ext_resource type="Script" uid="uid://dwrid0hugp8kb" path="res://code_distribution/code_distribution.gd" id="1_jd6lu"]
+[ext_resource type="Texture2D" uid="uid://ddf515ueuikpa" path="res://asset/Sprout Lands - UI Pack - Basic pack/Sprite sheets/Sprite sheet for Basic Pack.png" id="2_g5l42"]
+[ext_resource type="PackedScene" uid="uid://dk68n4r6i6ay3" path="res://HUD/button.tscn" id="3_nhifg"]
+[ext_resource type="Texture2D" uid="uid://b8cdgtfb5pw3a" path="res://asset/Sprout Lands - UI Pack - Basic pack/emojis-free/speech_bubble_grey.png" id="4_g5l42"]
+[ext_resource type="Texture2D" uid="uid://d0efv5dllq8ln" path="res://asset/Sprout Lands - UI Pack - Basic pack/emojis-free/Emoji_Spritesheet_Free.png" id="5_2a5k2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wxqf4"]
+atlas = ExtResource("5_2a5k2")
+region = Rect2(64, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wwxy2"]
+atlas = ExtResource("5_2a5k2")
+region = Rect2(64, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_72nfv"]
+atlas = ExtResource("5_2a5k2")
+region = Rect2(96, 128, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nhifg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wxqf4")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wwxy2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_72nfv")
+}],
+"loop": 1,
+"name": &"talk",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wjdrc"]
+atlas = ExtResource("2_g5l42")
+region = Rect2(107, 59, 26, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2a5k2"]
+atlas = ExtResource("2_g5l42")
+region = Rect2(258, 83, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7dbt8"]
+atlas = ExtResource("2_g5l42")
+region = Rect2(272, 16, 16, 16)
+
+[node name="CodeDistribution" type="Control" unique_id=698017826]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jd6lu")
+
+[node name="Background" type="ColorRect" parent="." unique_id=348619945]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.75686276, 0.78431374, 0.7254902, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=195571311]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="CenterContainer" unique_id=592081669]
+custom_minimum_size = Vector2(328, 328)
+layout_mode = 2
+
+[node name="Balloon" type="Control" parent="CenterContainer/Control" unique_id=207094077]
+anchors_preset = 0
+offset_right = 328.0
+offset_bottom = 36.0
+
+[node name="Panel" type="NinePatchRect" parent="CenterContainer/Control/Balloon" unique_id=1923958627]
+layout_mode = 0
+offset_left = 2.0
+offset_right = 38.0
+offset_bottom = 36.0
+texture = ExtResource("2_g5l42")
+region_rect = Rect2(59, 59, 26, 26)
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CenterContainer/Control/Balloon/Panel" unique_id=226378639]
+position = Vector2(18, 18.000002)
+scale = Vector2(0.9375, 0.9375)
+sprite_frames = SubResource("SpriteFrames_nhifg")
+animation = &"talk"
+
+[node name="Bubble" type="NinePatchRect" parent="CenterContainer/Control/Balloon" unique_id=432849437]
+layout_mode = 0
+offset_left = 326.0
+offset_right = 362.0
+offset_bottom = 284.0
+rotation = 1.5707964
+texture = ExtResource("4_g5l42")
+region_rect = Rect2(11, 11, 42, 47)
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 10
+
+[node name="Label" type="Label" parent="CenterContainer/Control/Balloon/Bubble" unique_id=2121251648]
+layout_mode = 1
+offset_left = 6.000012
+offset_top = 270.0
+offset_right = 267.0
+offset_bottom = 294.0
+rotation = -1.5707964
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 15
+text = "Copie e envie os códigos."
+vertical_alignment = 1
+
+[node name="Panel" type="NinePatchRect" parent="CenterContainer/Control" unique_id=665192532]
+custom_minimum_size = Vector2(328, 288)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -164.0
+offset_top = -124.0
+offset_right = 164.0
+offset_bottom = 164.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_g5l42")
+region_rect = Rect2(201, 57, 30, 30)
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="ColorRect" type="ColorRect" parent="CenterContainer/Control/Panel" unique_id=1984725277]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 7.0
+offset_right = 321.0
+offset_bottom = 281.0
+color = Color(0.9098039, 0.8117647, 0.6509804, 1)
+
+[node name="Title" type="Label" parent="CenterContainer/Control/Panel" unique_id=329135570]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -72.0
+offset_top = 7.0
+offset_right = 72.0
+offset_bottom = 48.0
+grow_horizontal = 2
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 20
+text = "CÓDIGOS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayersArea" type="NinePatchRect" parent="CenterContainer/Control/Panel" unique_id=1008818865]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 48.0
+offset_right = 312.0
+offset_bottom = 272.0
+texture = SubResource("AtlasTexture_wjdrc")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CenterContainer/Control/Panel/PlayersArea" unique_id=1025214483]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+vertical_scroll_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/Control/Panel/PlayersArea/ScrollContainer" unique_id=321851566]
+layout_mode = 2
+
+[node name="EndButton" parent="CenterContainer/Control/Panel" unique_id=763707274 instance=ExtResource("3_nhifg")]
+layout_mode = 0
+offset_left = 288.0
+offset_top = 16.0
+offset_right = 312.0
+offset_bottom = 40.0
+button_icon = SubResource("AtlasTexture_2a5k2")
+
+[node name="ReturnButton" parent="CenterContainer/Control/Panel" unique_id=1571455861 instance=ExtResource("3_nhifg")]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 40.0
+offset_bottom = 40.0
+button_text = ""
+button_icon = SubResource("AtlasTexture_7dbt8")
+
+[connection signal="pressed" from="CenterContainer/Control/Panel/EndButton" to="." method="_on_end_button_pressed"]
+[connection signal="pressed" from="CenterContainer/Control/Panel/ReturnButton" to="." method="_on_return_button_pressed"]
