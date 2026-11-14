@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://r5hqru4u21jr"]
 
 [ext_resource type="Texture2D" uid="uid://ddf515ueuikpa" path="res://asset/Sprout Lands - UI Pack - Basic pack/Sprite sheets/Sprite sheet for Basic Pack.png" id="1_325il"]
-[ext_resource type="Script" uid="uid://bt1wsjhatu5by" path="res://HUD/start_menu_button.gd" id="1_tidr3"]
+[ext_resource type="Script" uid="uid://bt1wsjhatu5by" path="res://start_menu/start_menu_button.gd" id="1_tidr3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5ubay"]
 atlas = ExtResource("1_325il")

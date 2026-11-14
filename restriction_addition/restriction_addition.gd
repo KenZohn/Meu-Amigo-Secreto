@@ -2,12 +2,18 @@ extends Control
 
 @onready var players_container = $CenterContainer/Control/Panel/PlayersArea/ScrollContainer/VBoxContainer
 
+const MESSAGES = [
+	"Quem não pode tirar quem?",
+	"Clique no + para adicionar."]
+
 
 func _ready() -> void:
 	for player in PlayerManager.players:
 		add_player(player)
 	
 	update_players_number()
+	
+	$CenterContainer/Control/Instruction.show_massage(MESSAGES)
 
 
 func add_player(player_name) -> void:

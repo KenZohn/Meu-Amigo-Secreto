@@ -2,6 +2,11 @@ extends Control
 
 @onready var players_container = $CenterContainer/Control/Panel/PlayersArea/ScrollContainer/VBoxContainer
 
+const MESSAGES = [
+	"Quem vai participar?",
+	"O limite é de 15 caracteres.",
+	"O X remove um participante."]
+
 
 func _ready() -> void:
 	if PlayerManager.players:
@@ -11,10 +16,8 @@ func _ready() -> void:
 		add_player()
 	
 	PlayerManager.restrictions.clear()
-
-
-func _on_button_pressed() -> void:
-	add_player()
+	
+	$CenterContainer/Control/Instruction.show_massage(MESSAGES)
 
 
 func add_player(player_name = "") -> void:
@@ -43,11 +46,6 @@ func update_players_number() -> void:
 	$CenterContainer/Control/Panel/PlayersNumber/Value.text = str(players.size())
 
 
-func _on_player_deleted() -> void:
-	await get_tree().process_frame
-	update_players_number()
-
-
 func get_players_name() -> bool:
 	var names: Array[String] = []
 	var players = players_container.get_children()
@@ -66,6 +64,15 @@ func get_players_name() -> bool:
 	
 	PlayerManager.players = names
 	return true
+
+
+func _on_add_button_pressed() -> void:
+	add_player()
+
+
+func _on_player_deleted() -> void:
+	await get_tree().process_frame
+	update_players_number()
 
 
 func _on_next_button_pressed() -> void:

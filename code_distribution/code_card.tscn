@@ -3,6 +3,15 @@
 [ext_resource type="Script" uid="uid://bidb3fgak508q" path="res://code_distribution/code_card.gd" id="1_bogmi"]
 [ext_resource type="Texture2D" uid="uid://ddf515ueuikpa" path="res://asset/Sprout Lands - UI Pack - Basic pack/Sprite sheets/Sprite sheet for Basic Pack.png" id="2_b6jx7"]
 [ext_resource type="PackedScene" uid="uid://dk68n4r6i6ay3" path="res://HUD/button.tscn" id="3_qc7ij"]
+[ext_resource type="Texture2D" uid="uid://wyhfkuuhturj" path="res://asset/Sprout Lands - UI Pack - Basic pack/Sprite sheets/buttons/Square Buttons 26x26.png" id="4_f0y7t"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3b5rm"]
+atlas = ExtResource("4_f0y7t")
+region = Rect2(11, 11, 26, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ymph"]
+atlas = ExtResource("4_f0y7t")
+region = Rect2(59, 9, 26, 28)
 
 [node name="CodeCard" type="Control" unique_id=207675311]
 custom_minimum_size = Vector2(264, 60)
@@ -20,7 +29,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_b6jx7")
-region_rect = Rect2(107, 107, 26, 26)
+region_rect = Rect2(59, 59, 26, 26)
 patch_margin_left = 8
 patch_margin_top = 8
 patch_margin_right = 8
@@ -64,11 +73,11 @@ offset_bottom = -8.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_b6jx7")
-region_rect = Rect2(59, 59, 26, 26)
-patch_margin_left = 8
-patch_margin_top = 8
-patch_margin_right = 8
-patch_margin_bottom = 8
+region_rect = Rect2(59, 11, 26, 26)
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
 
 [node name="Code" type="RichTextLabel" parent="CodePanel" unique_id=863246274]
 layout_mode = 1
@@ -96,5 +105,7 @@ offset_top = 24.0
 offset_right = 252.0
 offset_bottom = 52.0
 button_text = ""
+normal_texture = SubResource("AtlasTexture_3b5rm")
+pressed_texture = SubResource("AtlasTexture_4ymph")
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

@@ -1,0 +1,88 @@
+[gd_scene format=3 uid="uid://c527cj1iyduoy"]
+
+[ext_resource type="Script" uid="uid://kd525j64xfcn" path="res://HUD/instruction.gd" id="1_r0b4r"]
+[ext_resource type="Texture2D" uid="uid://ddf515ueuikpa" path="res://asset/Sprout Lands - UI Pack - Basic pack/Sprite sheets/Sprite sheet for Basic Pack.png" id="2_jtp0w"]
+[ext_resource type="Texture2D" uid="uid://d0efv5dllq8ln" path="res://asset/Sprout Lands - UI Pack - Basic pack/emojis-free/Emoji_Spritesheet_Free.png" id="3_7ngs8"]
+[ext_resource type="Texture2D" uid="uid://b8cdgtfb5pw3a" path="res://asset/Sprout Lands - UI Pack - Basic pack/emojis-free/speech_bubble_grey.png" id="4_x66jy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wxqf4"]
+atlas = ExtResource("3_7ngs8")
+region = Rect2(64, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wwxy2"]
+atlas = ExtResource("3_7ngs8")
+region = Rect2(64, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_72nfv"]
+atlas = ExtResource("3_7ngs8")
+region = Rect2(96, 128, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_45uin"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wxqf4")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wwxy2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_72nfv")
+}],
+"loop": 1,
+"name": &"talk",
+"speed": 5.0
+}]
+
+[node name="Instruction" type="Control" unique_id=1567488864]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_r0b4r")
+
+[node name="Panel" type="NinePatchRect" parent="." unique_id=416267801]
+layout_mode = 0
+offset_top = 1.2414034e-05
+offset_right = 36.0
+offset_bottom = 36.00001
+texture = ExtResource("2_jtp0w")
+region_rect = Rect2(59, 59, 26, 26)
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Panel" unique_id=1055431533]
+position = Vector2(18, 18.000002)
+scale = Vector2(0.9375, 0.9375)
+sprite_frames = SubResource("SpriteFrames_45uin")
+animation = &"talk"
+
+[node name="Bubble" type="NinePatchRect" parent="." unique_id=662720103]
+layout_mode = 0
+offset_left = 324.0
+offset_top = 1.2414034e-05
+offset_right = 360.0
+offset_bottom = 284.0
+rotation = 1.5707964
+texture = ExtResource("4_x66jy")
+region_rect = Rect2(11, 11, 42, 47)
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 10
+
+[node name="Label" type="Label" parent="Bubble" unique_id=2062497870]
+layout_mode = 1
+offset_left = 6.000012
+offset_top = 270.0
+offset_right = 267.0
+offset_bottom = 294.0
+rotation = -1.5707964
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 15
+vertical_alignment = 1

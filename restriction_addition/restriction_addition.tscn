@@ -1,44 +1,10 @@
 [gd_scene format=3 uid="uid://cja0g738ptcnn"]
 
 [ext_resource type="Script" uid="uid://dyrf6wwaieyk5" path="res://restriction_addition/restriction_addition.gd" id="1_2cjks"]
+[ext_resource type="PackedScene" uid="uid://c527cj1iyduoy" path="res://HUD/instruction.tscn" id="2_fq17q"]
 [ext_resource type="Texture2D" uid="uid://ddf515ueuikpa" path="res://asset/Sprout Lands - UI Pack - Basic pack/Sprite sheets/Sprite sheet for Basic Pack.png" id="2_hftoc"]
 [ext_resource type="PackedScene" uid="uid://dk68n4r6i6ay3" path="res://HUD/button.tscn" id="3_g6hvf"]
-[ext_resource type="Texture2D" uid="uid://b8cdgtfb5pw3a" path="res://asset/Sprout Lands - UI Pack - Basic pack/emojis-free/speech_bubble_grey.png" id="4_kjdfe"]
 [ext_resource type="Texture2D" uid="uid://d0efv5dllq8ln" path="res://asset/Sprout Lands - UI Pack - Basic pack/emojis-free/Emoji_Spritesheet_Free.png" id="5_a5mlx"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wxqf4"]
-atlas = ExtResource("5_a5mlx")
-region = Rect2(64, 128, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wwxy2"]
-atlas = ExtResource("5_a5mlx")
-region = Rect2(64, 128, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_72nfv"]
-atlas = ExtResource("5_a5mlx")
-region = Rect2(96, 128, 32, 32)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_5u2jp"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wxqf4")
-}],
-"loop": 1,
-"name": &"idle",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wwxy2")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_72nfv")
-}],
-"loop": 1,
-"name": &"talk",
-"speed": 5.0
-}]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d8tag"]
 atlas = ExtResource("2_hftoc")
@@ -90,53 +56,10 @@ grow_vertical = 2
 custom_minimum_size = Vector2(328, 328)
 layout_mode = 2
 
-[node name="Balloon" type="Control" parent="CenterContainer/Control" unique_id=822542426]
-anchors_preset = 0
-offset_right = 328.0
-offset_bottom = 36.0
-
-[node name="Panel" type="NinePatchRect" parent="CenterContainer/Control/Balloon" unique_id=1260371637]
+[node name="Instruction" parent="CenterContainer/Control" unique_id=1567488864 instance=ExtResource("2_fq17q")]
 layout_mode = 0
 offset_left = 2.0
-offset_right = 38.0
-offset_bottom = 36.0
-texture = ExtResource("2_hftoc")
-region_rect = Rect2(59, 59, 26, 26)
-patch_margin_left = 4
-patch_margin_top = 4
-patch_margin_right = 4
-patch_margin_bottom = 4
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CenterContainer/Control/Balloon/Panel" unique_id=925531673]
-position = Vector2(18, 18.000002)
-scale = Vector2(0.9375, 0.9375)
-sprite_frames = SubResource("SpriteFrames_5u2jp")
-animation = &"talk"
-
-[node name="Bubble" type="NinePatchRect" parent="CenterContainer/Control/Balloon" unique_id=972932344]
-layout_mode = 0
-offset_left = 326.0
-offset_right = 362.0
-offset_bottom = 284.0
-rotation = 1.5707964
-texture = ExtResource("4_kjdfe")
-region_rect = Rect2(11, 11, 42, 47)
-patch_margin_left = 5
-patch_margin_top = 5
-patch_margin_right = 5
-patch_margin_bottom = 10
-
-[node name="Label" type="Label" parent="CenterContainer/Control/Balloon/Bubble" unique_id=179995933]
-layout_mode = 1
-offset_left = 6.000012
-offset_top = 270.0
-offset_right = 267.0
-offset_bottom = 294.0
-rotation = -1.5707964
-theme_override_constants/outline_size = 3
-theme_override_font_sizes/font_size = 15
-text = "Quem não pode tirar quem?"
-vertical_alignment = 1
+offset_right = 2.0
 
 [node name="Panel" type="NinePatchRect" parent="CenterContainer/Control" unique_id=1119995027]
 custom_minimum_size = Vector2(328, 288)

@@ -1,45 +1,11 @@
 [gd_scene format=3 uid="uid://dv27v61khfmrs"]
 
 [ext_resource type="Script" uid="uid://3a6hxwf15rgc" path="res://player_addition/player_addition.gd" id="1_g73uj"]
+[ext_resource type="PackedScene" uid="uid://c527cj1iyduoy" path="res://HUD/instruction.tscn" id="2_72nfv"]
 [ext_resource type="Texture2D" uid="uid://ddf515ueuikpa" path="res://asset/Sprout Lands - UI Pack - Basic pack/Sprite sheets/Sprite sheet for Basic Pack.png" id="2_xip6n"]
 [ext_resource type="PackedScene" uid="uid://dk68n4r6i6ay3" path="res://HUD/button.tscn" id="3_8brhs"]
 [ext_resource type="Texture2D" uid="uid://bt1njoc0eeqly" path="res://asset/Sprout Lands - UI Pack - Basic pack/Sprite sheets/Icons/All Icons.png" id="4_7fv8b"]
-[ext_resource type="Texture2D" uid="uid://b8cdgtfb5pw3a" path="res://asset/Sprout Lands - UI Pack - Basic pack/emojis-free/speech_bubble_grey.png" id="4_wwxy2"]
 [ext_resource type="Texture2D" uid="uid://d0efv5dllq8ln" path="res://asset/Sprout Lands - UI Pack - Basic pack/emojis-free/Emoji_Spritesheet_Free.png" id="5_gyai8"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wxqf4"]
-atlas = ExtResource("5_gyai8")
-region = Rect2(64, 128, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wwxy2"]
-atlas = ExtResource("5_gyai8")
-region = Rect2(64, 128, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_72nfv"]
-atlas = ExtResource("5_gyai8")
-region = Rect2(96, 128, 32, 32)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_x7t68"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wxqf4")
-}],
-"loop": 1,
-"name": &"idle",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wwxy2")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_72nfv")
-}],
-"loop": 1,
-"name": &"talk",
-"speed": 5.0
-}]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_87pxh"]
 atlas = ExtResource("2_xip6n")
@@ -95,55 +61,10 @@ grow_vertical = 2
 custom_minimum_size = Vector2(328, 328)
 layout_mode = 2
 
-[node name="Balloon" type="Control" parent="CenterContainer/Control" unique_id=1398612958]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Panel" type="NinePatchRect" parent="CenterContainer/Control/Balloon" unique_id=749696222]
+[node name="Instruction" parent="CenterContainer/Control" unique_id=1567488864 instance=ExtResource("2_72nfv")]
 layout_mode = 0
 offset_left = 2.0
-offset_right = 38.0
-offset_bottom = 36.0
-texture = ExtResource("2_xip6n")
-region_rect = Rect2(59, 59, 26, 26)
-patch_margin_left = 4
-patch_margin_top = 4
-patch_margin_right = 4
-patch_margin_bottom = 4
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CenterContainer/Control/Balloon/Panel" unique_id=1252522307]
-position = Vector2(18, 18.000002)
-scale = Vector2(0.9375, 0.9375)
-sprite_frames = SubResource("SpriteFrames_x7t68")
-animation = &"talk"
-frame = 1
-frame_progress = 0.22555771
-
-[node name="Bubble" type="NinePatchRect" parent="CenterContainer/Control/Balloon" unique_id=1305575059]
-layout_mode = 0
-offset_left = 326.0
-offset_right = 362.0
-offset_bottom = 284.0
-rotation = 1.5707964
-texture = ExtResource("4_wwxy2")
-region_rect = Rect2(11, 11, 42, 47)
-patch_margin_left = 5
-patch_margin_top = 5
-patch_margin_right = 5
-patch_margin_bottom = 10
-
-[node name="Label" type="Label" parent="CenterContainer/Control/Balloon/Bubble" unique_id=1707250648]
-layout_mode = 1
-offset_left = 6.000012
-offset_top = 270.0
-offset_right = 267.0
-offset_bottom = 294.0
-rotation = -1.5707964
-theme_override_constants/outline_size = 3
-theme_override_font_sizes/font_size = 15
-text = "Quem vai participar?"
-vertical_alignment = 1
+offset_right = 2.0
 
 [node name="Panel" type="NinePatchRect" parent="CenterContainer/Control" unique_id=1143130216]
 custom_minimum_size = Vector2(328, 288)
@@ -282,6 +203,6 @@ offset_bottom = 40.0
 button_text = ""
 button_icon = SubResource("AtlasTexture_fq17q")
 
-[connection signal="pressed" from="CenterContainer/Control/Panel/AddButton" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="CenterContainer/Control/Panel/AddButton" to="." method="_on_add_button_pressed"]
 [connection signal="pressed" from="CenterContainer/Control/Panel/NextButton" to="." method="_on_next_button_pressed"]
 [connection signal="pressed" from="CenterContainer/Control/Panel/ReturnButton" to="." method="_on_return_button_pressed"]

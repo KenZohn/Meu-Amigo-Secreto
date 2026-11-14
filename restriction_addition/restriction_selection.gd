@@ -2,6 +2,10 @@ extends CanvasLayer
 
 @onready var selection_container = $CenterContainer/Control/Panel/PlayersArea/ScrollContainer/SelectionContainer
 
+const MESSAGES = [
+	"Quem essa pessoa não pode tirar?",
+	"Clique no nome para selecionar."]
+
 var player_number: String
 var player_name: String
 var selected_players: Array[String] = []
@@ -12,6 +16,8 @@ func _ready() -> void:
 	
 	$CenterContainer/Control/Panel/Control/Number.text = player_number
 	$CenterContainer/Control/Panel/Control/Name.text = player_name
+	
+	$CenterContainer/Control/Instruction.show_massage(MESSAGES)
 
 
 func load_player_selection_card() -> void:

@@ -3,28 +3,15 @@ extends Control
 const ALPHABET := "ABCDEFGHIJKLMNOPQRSTUVWXYZÁÀÂÃÉÊÍÓÔÕÚÇabcdefghijklmnopqrstuvwxyzáàâãéêíóôõúç 0123456789-'."
 const BASE62_ALPHABET := "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
 
+const MESSAGES = [
+	"Copie e envie os códigos.",
+	"O botão ao lado copia o código.",
+	"Depois, envie a cada participante."]
 
 func _ready() -> void:
-	var current_time := Time.get_time_dict_from_system()
-
-	var seconds: int = current_time.hour * 3600 \
-		+ current_time.minute * 60 \
-		+ current_time.second
+	show_code_card()
 	
-	var number := 1
-	
-	for player in PlayerManager.sort:
-		var crypted = generate_code(PlayerManager.sort[player], seconds)
-		
-		var code_card = preload(Scene.CODE_CARD).instantiate()
-		
-		code_card.get_node("Number").text = str(number) + "."
-		code_card.get_node("Name").text = player
-		code_card.get_node("CodePanel/Code").text = crypted
-		
-		$CenterContainer/Control/Panel/PlayersArea/ScrollContainer/VBoxContainer.add_child(code_card)
-		
-		number += 1
+	$CenterContainer/Control/Instruction.show_massage(MESSAGES)
 
 
 func base62_encode(value: int, length: int) -> String:
@@ -65,6 +52,29 @@ func generate_code(player_name: String, seconds: int) -> String:
 		encrypted += ALPHABET[(index + key) % ALPHABET.length()]
 	
 	return encrypted + metadata
+
+
+func show_code_card() -> void:
+	var current_time := Time.get_time_dict_from_system()
+	
+	var seconds: int = current_time.hour * 3600 \
+		+ current_time.minute * 60 \
+		+ current_time.second
+	
+	var number := 1
+	
+	for player in PlayerManager.sort:
+		var crypted = generate_code(PlayerManager.sort[player], seconds)
+		
+		var code_card = preload(Scene.CODE_CARD).instantiate()
+		
+		code_card.get_node("Number").text = str(number) + "."
+		code_card.get_node("Name").text = player
+		code_card.get_node("CodePanel/Code").text = crypted
+		
+		$CenterContainer/Control/Panel/PlayersArea/ScrollContainer/VBoxContainer.add_child(code_card)
+		
+		number += 1
 
 
 func _on_return_button_pressed() -> void:

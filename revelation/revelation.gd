@@ -5,7 +5,7 @@ const BASE62_ALPHABET := "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqr
 
 
 func _ready() -> void:
-	$CodePanel/Code.grab_focus()
+	$CenterContainer/Control/CodePanel/Code.grab_focus()
 
 
 func base62_decode(value: String) -> int:
@@ -41,7 +41,7 @@ func reveal_name(code: String) -> String:
 
 
 func _on_reveal_button_pressed() -> void:
-	var code = $CodePanel/Code.text
+	var code = $CenterContainer/Control/CodePanel/Code.text
 	
 	if code.length() == 20:
 		$AnimationPlayer.play("fade_out")
@@ -53,7 +53,9 @@ func _on_reveal_button_pressed() -> void:
 		
 		add_child(my_secret_friend)
 	else:
-		print("Código invalido")
+		print("Código inválido")
+		
+		$CenterContainer/Control/CodePanel/Code.grab_focus()
 
 
 func _on_return_button_pressed() -> void:

@@ -42,6 +42,8 @@ func _on_button_up() -> void:
 	$Background.texture = normal_texture
 	$Label.position.y -= 2
 	$MarginContainer/Icon.position.y -= 2
+	
+	AudioManager.play_sound(Audio.CONFIRM)
 
 
 func _on_button_down() -> void:
