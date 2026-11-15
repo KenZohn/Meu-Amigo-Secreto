@@ -77,8 +77,8 @@ func _on_player_deleted() -> void:
 
 func _on_next_button_pressed() -> void:
 	if get_players_name():
-		get_tree().change_scene_to_file(Scene.RESTRICTION_ADDITION)
+		Transition.change_screen(load(Scene.RESTRICTION_ADDITION))
 
 
 func _on_return_button_pressed() -> void:
-	get_tree().change_scene_to_file(Scene.START_MENU)
+	Transition.change_screen(load(Scene.START_MENU))

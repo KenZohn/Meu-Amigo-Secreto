@@ -21,8 +21,8 @@ func _ready() -> void:
 
 
 func _on_new_game_button_pressed() -> void:
-	get_tree().change_scene_to_file(Scene.PLAYER_ADDITION)
+	Transition.change_screen(load(Scene.PLAYER_ADDITION))
 
 
 func _on_reveal_button_pressed() -> void:
-	get_tree().change_scene_to_file(Scene.REVELATION)
+	Transition.change_screen(load(Scene.REVELATION))

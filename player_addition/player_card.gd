@@ -21,6 +21,7 @@ func _on_button_pressed() -> void:
 
 func _on_name_text_submitted(_text: String) -> void:
 	if not $Name.text.strip_edges().is_empty():
+		AudioManager.play_sound(Audio.CONFIRM)
 		enter_pressed.emit()
 
 

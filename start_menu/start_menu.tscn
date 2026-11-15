@@ -13,15 +13,6 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_pelf0")
 
-[node name="Background" type="ColorRect" parent="." unique_id=681599476]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.75686276, 0.78431374, 0.7254902, 1)
-
 [node name="CenterContainer" type="CenterContainer" parent="." unique_id=1634164247]
 layout_mode = 1
 anchors_preset = 15
@@ -76,9 +67,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -52.0
+offset_left = -60.0
 offset_top = -12.0
-offset_right = 68.0
+offset_right = 60.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -86,9 +77,9 @@ button_text = "NOVO JOGO"
 
 [node name="RevealButton" parent="CenterContainer/Control" unique_id=743966031 instance=ExtResource("3_pelf0")]
 layout_mode = 0
-offset_left = -52.0
+offset_left = -60.0
 offset_top = 28.0
-offset_right = 67.0
+offset_right = 60.0
 offset_bottom = 60.0
 button_text = "REVELAR"
 

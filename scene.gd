@@ -1,5 +1,6 @@
 extends Node
 
+const MAIN := "res://main.tscn"
 const START_MENU := "res://start_menu/start_menu.tscn"
 const PLAYER_ADDITION := "res://player_addition/player_addition.tscn"
 const RESTRICTION_ADDITION := "res://restriction_addition/restriction_addition.tscn"

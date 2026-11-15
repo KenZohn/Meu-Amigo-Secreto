@@ -44,8 +44,7 @@ func _on_reveal_button_pressed() -> void:
 	var code = $CenterContainer/Control/CodePanel/Code.text
 	
 	if code.length() == 20:
-		$AnimationPlayer.play("fade_out")
-		await $AnimationPlayer.animation_finished
+		await Transition.fade_out()
 		
 		var my_secret_friend = preload(Scene.MY_SECRET_FRIEND).instantiate()
 		
@@ -59,4 +58,4 @@ func _on_reveal_button_pressed() -> void:
 
 
 func _on_return_button_pressed() -> void:
-	get_tree().change_scene_to_file(Scene.START_MENU)
+	Transition.change_screen(load(Scene.START_MENU))

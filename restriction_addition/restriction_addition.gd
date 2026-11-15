@@ -138,10 +138,10 @@ func sort_result(result: Dictionary) -> Dictionary:
 
 
 func _on_return_button_pressed() -> void:
-	get_tree().change_scene_to_file(Scene.PLAYER_ADDITION)
+	Transition.change_screen(load(Scene.PLAYER_ADDITION))
 
 
 func _on_next_button_pressed() -> void:
 	PlayerManager.sort = draw_names().duplicate()
 	
-	get_tree().change_scene_to_file(Scene.CODE_DISTRIBUTION)
+	Transition.change_screen(load(Scene.CODE_DISTRIBUTION))

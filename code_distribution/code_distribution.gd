@@ -78,8 +78,8 @@ func show_code_card() -> void:
 
 
 func _on_return_button_pressed() -> void:
-	get_tree().change_scene_to_file(Scene.RESTRICTION_ADDITION)
+	Transition.change_screen(load(Scene.RESTRICTION_ADDITION))
 
 
 func _on_end_button_pressed() -> void:
-	get_tree().change_scene_to_file(Scene.START_MENU)
+	Transition.change_screen(load(Scene.START_MENU))

@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Meu Amigo Secreto"
-run/main_scene="uid://dtlb8sata2n5y"
+run/main_scene="uid://btomdoqtrv6ak"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -21,6 +21,7 @@ Scene="*uid://dvq0ppwgdscsf"
 PlayerManager="*uid://bw2t1knw8xyjg"
 AudioManager="*uid://chsl448g1svf6"
 Audio="*uid://b41evwv7gpghe"
+Transition="*uid://douyha2xu25mk"
 
 [display]
 

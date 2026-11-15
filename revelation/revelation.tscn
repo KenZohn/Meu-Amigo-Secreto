@@ -10,7 +10,7 @@ region = Rect2(256, 64, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x7t68"]
 atlas = ExtResource("1_mg5ta")
-region = Rect2(256, 80, 16, 16)
+region = Rect2(256, 81, 16, 16)
 
 [sub_resource type="Animation" id="Animation_ysx83"]
 length = 0.001
@@ -56,15 +56,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ysx83")
-
-[node name="Background" type="ColorRect" parent="." unique_id=540922054]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.75686276, 0.78431374, 0.7254902, 1)
 
 [node name="CenterContainer" type="CenterContainer" parent="." unique_id=900035805]
 layout_mode = 1

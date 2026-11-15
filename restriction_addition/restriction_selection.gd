@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-@onready var selection_container = $CenterContainer/Control/Panel/PlayersArea/ScrollContainer/SelectionContainer
+@onready var selection_container = $CenterContainer/Control/Content/Panel/PlayersArea/ScrollContainer/SelectionContainer
 
 const MESSAGES = [
 	"Quem essa pessoa não pode tirar?",
@@ -12,12 +12,14 @@ var selected_players: Array[String] = []
 
 
 func _ready() -> void:
+	$AnimationPlayer.play("pop_in")
+	
 	load_player_selection_card()
 	
-	$CenterContainer/Control/Panel/Control/Number.text = player_number
-	$CenterContainer/Control/Panel/Control/Name.text = player_name
+	$CenterContainer/Control/Content/Panel/Control/Number.text = player_number
+	$CenterContainer/Control/Content/Panel/Control/Name.text = player_name
 	
-	$CenterContainer/Control/Instruction.show_massage(MESSAGES)
+	$CenterContainer/Control/Content/Instruction.show_massage(MESSAGES)
 
 
 func load_player_selection_card() -> void:
@@ -54,5 +56,10 @@ func _on_confirm_button_pressed() -> void:
 	get_selected_players()
 	
 	get_parent().update_restricted()
+	
+	$AnimationPlayer.play("pop_out")
+	await $AnimationPlayer.animation_finished
+	
+	get_tree().paused = false
 	
 	queue_free()
