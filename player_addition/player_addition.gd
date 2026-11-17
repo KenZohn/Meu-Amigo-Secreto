@@ -62,12 +62,16 @@ func get_players_name() -> bool:
 			
 			if player_name.is_empty():
 				UiManager.message_bubble.show_message(name_field, "Insira um nome.")
-			if names.has(player_name):
+			elif names.has(player_name):
 				UiManager.message_bubble.show_message(name_field, "Nome duplicado.")
 			
 			return false
 		
 		names.append(player_name)
+	
+	if players.size() < 3:
+		UiManager.message_bubble.show_message($CenterContainer/Control/Panel/AddButton, "Mínimo de 3 participantes.")
+		return false
 	
 	PlayerManager.players = names
 	return true

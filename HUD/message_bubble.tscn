@@ -16,6 +16,7 @@ _data = {
 }
 
 [node name="MessageBubble" type="PanelContainer" unique_id=1007026409]
+process_mode = 3
 self_modulate = Color(1, 1, 1, 0)
 offset_right = 50.0
 offset_bottom = 29.0
@@ -50,4 +51,5 @@ one_shot = true
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=235753958]
 libraries/ = SubResource("AnimationLibrary_vhnqw")
 
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
 [connection signal="timeout" from="DisplayTimer" to="." method="_on_display_timer_timeout"]

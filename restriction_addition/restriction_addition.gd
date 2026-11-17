@@ -144,4 +144,7 @@ func _on_return_button_pressed() -> void:
 func _on_next_button_pressed() -> void:
 	PlayerManager.sort = draw_names().duplicate()
 	
-	Transition.change_screen(load(Scene.CODE_DISTRIBUTION))
+	if PlayerManager.sort:
+		Transition.change_screen(load(Scene.CODE_DISTRIBUTION))
+	else:
+		UiManager.message_bubble.show_message($CenterContainer/Control/Panel/PlayersNumber, "Não foi possível sortear com as restrições atuais.")

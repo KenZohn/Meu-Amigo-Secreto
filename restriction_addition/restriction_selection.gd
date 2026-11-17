@@ -33,6 +33,7 @@ func load_player_selection_card() -> void:
 		var player_selection_name = player_selection.get_node("Name")
 		
 		player_selection_name.text = player
+		player_selection.restriction_selection = self
 		
 		if PlayerManager.restrictions.has(player_name):
 			if player_selection_name.text in PlayerManager.restrictions[player_name]:
@@ -52,7 +53,28 @@ func get_selected_players() -> void:
 	PlayerManager.restrictions[player_name] = selected_players.duplicate()
 
 
+func can_select_restriction(player_selection) -> bool:
+	if player_selection.selected:
+		UiManager.message_bubble.hide_message()
+		return true
+	
+	var selected_count = 0
+	
+	for player in selection_container.get_children():
+		if player.selected:
+			selected_count += 1
+	
+	if selected_count == selection_container.get_child_count() - 1:
+		UiManager.message_bubble.show_message(player_selection, "Pelo menos um participante deve ficar sem restrição.")
+		return false
+	
+	UiManager.message_bubble.hide_message()
+	return true
+
+
 func _on_confirm_button_pressed() -> void:
+	UiManager.message_bubble.hide_message()
+	
 	get_selected_players()
 	
 	get_parent().update_restricted()
