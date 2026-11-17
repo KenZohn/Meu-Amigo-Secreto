@@ -25,6 +25,7 @@ func add_player(player_name = "") -> void:
 	
 	player.deleted.connect(_on_player_deleted)
 	player.enter_pressed.connect(add_player)
+	player.get_node("Name").text_changed.connect(_on_name_text_changed.bind(player.get_node("Name")))
 	
 	players_container.add_child(player)
 	
@@ -58,12 +59,30 @@ func get_players_name() -> bool:
 			name_field.grab_focus()
 			name_field.select_all()
 			$CenterContainer/Control/Panel/PlayersArea/ScrollContainer.ensure_control_visible(name_field)
+			
+			if player_name.is_empty():
+				UiManager.message_bubble.show_message(name_field, "Insira um nome.")
+			if names.has(player_name):
+				UiManager.message_bubble.show_message(name_field, "Nome duplicado.")
+			
 			return false
 		
 		names.append(player_name)
 	
 	PlayerManager.players = names
 	return true
+
+
+func _on_name_text_changed(new_text: String, name_field: LineEdit) -> void:
+	for character in new_text:
+		if not Constants.ALPHABET.contains(character.to_upper()):
+			UiManager.message_bubble.show_message(name_field, "Caractere inválido.")
+			break
+		
+		if new_text.length() > Constants.MAX_NAME_LENGTH:
+			name_field.text = new_text.left(Constants.MAX_NAME_LENGTH)
+			name_field.caret_column = Constants.MAX_NAME_LENGTH
+			UiManager.message_bubble.show_message(name_field, "Limite de 15 caracteres.")
 
 
 func _on_add_button_pressed() -> void:

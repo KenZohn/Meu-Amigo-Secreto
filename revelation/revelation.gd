@@ -1,8 +1,5 @@
 extends Control
 
-const ALPHABET := "ABCDEFGHIJKLMNOPQRSTUVWXYZÁÀÂÃÉÊÍÓÔÕÚÇabcdefghijklmnopqrstuvwxyzáàâãéêíóôõúç 0123456789-'."
-const BASE62_ALPHABET := "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
-
 
 func _ready() -> void:
 	$CenterContainer/Control/CodePanel/Code.grab_focus()
@@ -12,7 +9,7 @@ func base62_decode(value: String) -> int:
 	var result := 0
 	
 	for character in value:
-		result = result * 62 + BASE62_ALPHABET.find(character)
+		result = result * 62 + Constants.BASE62_ALPHABET.find(character)
 	
 	return result
 
@@ -33,9 +30,9 @@ func reveal_name(code: String) -> String:
 	var player_name := ""
 	
 	for i in 15:
-		var index := ALPHABET.find(encrypted[i])
-		var key := (seconds + i) % ALPHABET.length()
-		player_name += ALPHABET[(index - key + ALPHABET.length()) % ALPHABET.length()]
+		var index := Constants.ALPHABET.find(encrypted[i])
+		var key := (seconds + i) % Constants.ALPHABET.length()
+		player_name += Constants.ALPHABET[(index - key + Constants.ALPHABET.length()) % Constants.ALPHABET.length()]
 	
 	return player_name.substr(0, original_length)
 

@@ -3,8 +3,6 @@ extends Control
 signal deleted
 signal enter_pressed
 
-const ALPHABET := "ABCDEFGHIJKLMNOPQRSTUVWXYZÁÀÂÃÉÊÍÓÔÕÚÇabcdefghijklmnopqrstuvwxyzáàâãéêíóôõúç 0123456789-'."
-
 
 func set_number(number: int) -> void:
 	$Number.text = str(number) + "."
@@ -29,7 +27,7 @@ func _on_name_text_changed(new_text: String) -> void:
 	var filtered_text := ""
 	
 	for character in new_text:
-		if character in ALPHABET:
+		if character in Constants.ALPHABET:
 			filtered_text += character
 	
 	if new_text != filtered_text:

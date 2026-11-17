@@ -14,3 +14,4 @@ const PLAYER_RESTRICTION_CARD := "res://restriction_addition/player_restriction_
 const PLAYER_SELECTION_CARD := "res://restriction_addition/player_selection_card.tscn"
 const PLAYER_RESTRICTED_CARD := "res://restriction_addition/player_restricted_card.tscn"
 const CODE_CARD := "res://code_distribution/code_card.tscn"
+const MESSAGE_BUBBLE = "res://HUD/message_bubble.tscn"

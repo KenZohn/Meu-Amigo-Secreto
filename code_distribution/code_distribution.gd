@@ -1,7 +1,5 @@
 extends Control
 
-const ALPHABET := "ABCDEFGHIJKLMNOPQRSTUVWXYZÁÀÂÃÉÊÍÓÔÕÚÇabcdefghijklmnopqrstuvwxyzáàâãéêíóôõúç 0123456789-'."
-const BASE62_ALPHABET := "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
 
 const MESSAGES = [
 	"Copie e envie os códigos.",
@@ -18,7 +16,7 @@ func base62_encode(value: int, length: int) -> String:
 	var result := ""
 	
 	for i in length:
-		result = BASE62_ALPHABET[value % 62] + result
+		result = Constants.BASE62_ALPHABET[value % 62] + result
 		value /= 62
 	
 	return result
@@ -30,8 +28,8 @@ func generate_code(player_name: String, seconds: int) -> String:
 	# Preenchimento até 15 caracteres
 	while player_name.length() < 15:
 		var i := player_name.length()
-		var index := (seconds + i * 13 + player_name.to_utf8_buffer()[0]) % ALPHABET.length()
-		player_name += ALPHABET[index]
+		var index := (seconds + i * 13 + player_name.to_utf8_buffer()[0]) % Constants.ALPHABET.length()
+		player_name += Constants.ALPHABET[index]
 	
 	# Conversão do horário e comprimento
 	var time_code := base62_encode(seconds, 3)
@@ -47,9 +45,9 @@ func generate_code(player_name: String, seconds: int) -> String:
 	var encrypted := ""
 	
 	for i in 15:
-		var index := ALPHABET.find(player_name[i])
-		var key := (seconds + i) % ALPHABET.length()
-		encrypted += ALPHABET[(index + key) % ALPHABET.length()]
+		var index := Constants.ALPHABET.find(player_name[i])
+		var key := (seconds + i) % Constants.ALPHABET.length()
+		encrypted += Constants.ALPHABET[(index + key) % Constants.ALPHABET.length()]
 	
 	return encrypted + metadata
 

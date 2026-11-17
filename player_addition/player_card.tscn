@@ -50,7 +50,6 @@ offset_top = 6.0
 offset_right = 226.0
 offset_bottom = 30.0
 theme_override_font_sizes/font_size = 16
-max_length = 15
 
 [node name="Button" parent="." unique_id=763707274 instance=ExtResource("3_owv5i")]
 layout_mode = 0
