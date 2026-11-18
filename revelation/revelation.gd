@@ -56,3 +56,7 @@ func _on_reveal_button_pressed() -> void:
 
 func _on_return_button_pressed() -> void:
 	Transition.change_screen(load(Scene.START_MENU))
+
+
+func _on_paste_button_pressed() -> void:
+	$CenterContainer/Control/CodePanel/Code.text = DisplayServer.clipboard_get()

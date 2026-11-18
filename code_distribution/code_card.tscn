@@ -5,6 +5,10 @@
 [ext_resource type="PackedScene" uid="uid://dk68n4r6i6ay3" path="res://HUD/button.tscn" id="3_qc7ij"]
 [ext_resource type="Texture2D" uid="uid://wyhfkuuhturj" path="res://asset/Sprout Lands - UI Pack - Basic pack/Sprite sheets/buttons/Square Buttons 26x26.png" id="4_f0y7t"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_ysx83"]
+atlas = ExtResource("2_b6jx7")
+region = Rect2(688, 192, 16, 16)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_3b5rm"]
 atlas = ExtResource("4_f0y7t")
 region = Rect2(11, 11, 26, 28)
@@ -105,6 +109,7 @@ offset_top = 24.0
 offset_right = 252.0
 offset_bottom = 52.0
 button_text = ""
+button_icon = SubResource("AtlasTexture_ysx83")
 normal_texture = SubResource("AtlasTexture_3b5rm")
 pressed_texture = SubResource("AtlasTexture_4ymph")
 
