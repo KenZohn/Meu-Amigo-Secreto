@@ -6,6 +6,7 @@ func play_sound(sound_data: Dictionary) -> void:
 	
 	audio.stream = sound_data["sound"]
 	audio.volume_db = sound_data.get("volume", 0.0)
+	audio.process_mode = Node.PROCESS_MODE_ALWAYS
 	
 	add_child(audio)
 	
