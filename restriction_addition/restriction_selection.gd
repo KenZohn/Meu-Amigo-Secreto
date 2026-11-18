@@ -65,7 +65,7 @@ func can_select_restriction(player_selection) -> bool:
 			selected_count += 1
 	
 	if selected_count == selection_container.get_child_count() - 1:
-		UiManager.message_bubble.show_message(player_selection, "Pelo menos um participante deve ficar sem restrição.")
+		UiManager.message_bubble.show_message(player_selection, "Não é possível restringir todos.")
 		return false
 	
 	UiManager.message_bubble.hide_message()
