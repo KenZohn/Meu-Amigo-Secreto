@@ -21,3 +21,4 @@ grow_vertical = 2
 color = Color(0.75686276, 0.78431374, 0.7254902, 1)
 
 [node name="MessageLayer" type="CanvasLayer" parent="." unique_id=430348935]
+layer = 10

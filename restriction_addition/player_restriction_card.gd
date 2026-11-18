@@ -38,8 +38,6 @@ func update_restricted() -> void:
 
 
 func _on_button_pressed() -> void:
-	get_tree().paused = true
-	
 	var restriction_selection = preload(Scene.RESTRICTION_SELECTION).instantiate()
 	
 	restriction_selection.player_name = $Name.text

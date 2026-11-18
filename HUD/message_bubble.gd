@@ -7,6 +7,8 @@ func show_message(target, message: String) -> void:
 	
 	$Margin/Label.text = message
 	
+	reset_size()
+	
 	global_position = target.global_position
 	global_position.y -= size.y + 4
 	

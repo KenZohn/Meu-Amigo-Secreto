@@ -2,6 +2,9 @@ extends Control
 
 @onready var players_container = $CenterContainer/Control/Panel/PlayersArea/ScrollContainer/VBoxContainer
 
+var one_cicle := false
+
+
 const MESSAGES = [
 	"Quem não pode tirar quem?",
 	"Clique no + para adicionar."]
@@ -43,6 +46,7 @@ func draw_names() -> Dictionary:
 	remaining.erase(players[0])
 	
 	if find_cycle(path, remaining):
+		one_cicle = true
 		return create_draw_result(path)
 	
 	# Segunda tentativa: apenas respeitar as restrições
@@ -52,6 +56,7 @@ func draw_names() -> Dictionary:
 	var available: Array[String] = players.duplicate()
 	
 	if assign_players(players, available, result):
+		one_cicle = false
 		return sort_result(result)
 	
 	return {}
@@ -68,13 +73,13 @@ func find_cycle(path: Array[String], remaining: Array[String]):
 	for candidate in candidates:
 		if is_restricted(current_player, candidate):
 			continue
-	
+		
 		path.append(candidate)
 		remaining.erase(candidate)
-	
+		
 		if find_cycle(path, remaining):
 			return sort_result(create_draw_result(path))
-	
+		
 		path.pop_back()
 		remaining.append(candidate)
 	
@@ -138,13 +143,37 @@ func sort_result(result: Dictionary) -> Dictionary:
 
 
 func _on_return_button_pressed() -> void:
-	Transition.change_screen(load(Scene.PLAYER_ADDITION))
+	if PlayerManager.restrictions:
+		var confirmation_dialog = preload(Scene.CONFIRMATION_DIALOG).instantiate()
+			
+		confirmation_dialog.show_dialog("As restrições serão perdidas. Deseja voltar à tela anterior?")
+		
+		confirmation_dialog.confirm.connect(
+			func():
+				Transition.change_screen(load(Scene.PLAYER_ADDITION))
+		)
+		
+		add_child(confirmation_dialog)
+	else:
+		Transition.change_screen(load(Scene.PLAYER_ADDITION))
 
 
 func _on_next_button_pressed() -> void:
 	PlayerManager.sort = draw_names().duplicate()
 	
 	if PlayerManager.sort:
-		Transition.change_screen(load(Scene.CODE_DISTRIBUTION))
+		if one_cicle:
+			Transition.change_screen(load(Scene.CODE_DISTRIBUTION))
+		else:
+			var confirmation_dialog = preload(Scene.CONFIRMATION_DIALOG).instantiate()
+			
+			confirmation_dialog.show_dialog("Não foi possível encontrar um único ciclo. Continuar mesmo assim?")
+			
+			confirmation_dialog.confirm.connect(
+				func():
+					Transition.change_screen(load(Scene.CODE_DISTRIBUTION))
+			)
+			
+			add_child(confirmation_dialog)
 	else:
 		UiManager.message_bubble.show_message($CenterContainer/Control/Panel/PlayersNumber, "Não foi possível sortear com as restrições atuais.")

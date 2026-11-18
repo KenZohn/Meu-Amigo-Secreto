@@ -80,4 +80,13 @@ func _on_return_button_pressed() -> void:
 
 
 func _on_end_button_pressed() -> void:
-	Transition.change_screen(load(Scene.START_MENU))
+	var confirmation_dialog = preload(Scene.CONFIRMATION_DIALOG).instantiate()
+		
+	confirmation_dialog.show_dialog("Deseja finalizar e voltar à tela inicial?")
+	
+	confirmation_dialog.confirm.connect(
+		func():
+			Transition.change_screen(load(Scene.START_MENU))
+	)
+	
+	add_child(confirmation_dialog)

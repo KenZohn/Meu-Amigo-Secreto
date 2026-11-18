@@ -12,6 +12,8 @@ var selected_players: Array[String] = []
 
 
 func _ready() -> void:
+	get_tree().paused = true
+	
 	$AnimationPlayer.play("pop_in")
 	
 	load_player_selection_card()
