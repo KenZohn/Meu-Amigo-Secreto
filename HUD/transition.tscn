@@ -122,7 +122,6 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1531867550]
 libraries/ = SubResource("AnimationLibrary_pj2mc")
