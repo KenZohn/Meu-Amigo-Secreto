@@ -1,20 +1,20 @@
 [gd_scene format=3 uid="uid://1qrx1ek42hui"]
 
 [ext_resource type="Script" uid="uid://dwrid0hugp8kb" path="res://code_distribution/code_distribution.gd" id="1_jd6lu"]
-[ext_resource type="PackedScene" uid="uid://c527cj1iyduoy" path="res://HUD/instruction.tscn" id="2_dhqvk"]
-[ext_resource type="Texture2D" uid="uid://ddf515ueuikpa" path="res://asset/Sprout Lands - UI Pack - Basic pack/Sprite sheets/Sprite sheet for Basic Pack.png" id="2_g5l42"]
-[ext_resource type="PackedScene" uid="uid://dk68n4r6i6ay3" path="res://HUD/button.tscn" id="3_nhifg"]
+[ext_resource type="PackedScene" uid="uid://c527cj1iyduoy" path="res://hud/instruction.tscn" id="2_dhqvk"]
+[ext_resource type="Texture2D" uid="uid://dneco8vsl13dv" path="res://asset/sprout_lands/ui/ui.png" id="3_dhqvk"]
+[ext_resource type="PackedScene" uid="uid://dk68n4r6i6ay3" path="res://hud/button.tscn" id="3_nhifg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wjdrc"]
-atlas = ExtResource("2_g5l42")
+atlas = ExtResource("3_dhqvk")
 region = Rect2(107, 59, 26, 26)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2a5k2"]
-atlas = ExtResource("2_g5l42")
+atlas = ExtResource("3_dhqvk")
 region = Rect2(258, 83, 12, 12)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7dbt8"]
-atlas = ExtResource("2_g5l42")
+atlas = ExtResource("3_dhqvk")
 region = Rect2(272, 16, 16, 16)
 
 [node name="CodeDistribution" type="Control" unique_id=698017826]
@@ -25,15 +25,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_jd6lu")
-
-[node name="Background" type="ColorRect" parent="." unique_id=348619945]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.75686276, 0.78431374, 0.7254902, 1)
 
 [node name="CenterContainer" type="CenterContainer" parent="." unique_id=195571311]
 layout_mode = 1
@@ -66,7 +57,7 @@ offset_right = 164.0
 offset_bottom = 164.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_g5l42")
+texture = ExtResource("3_dhqvk")
 region_rect = Rect2(201, 57, 30, 30)
 patch_margin_left = 8
 patch_margin_top = 8

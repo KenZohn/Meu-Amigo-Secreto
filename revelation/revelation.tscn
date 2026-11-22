@@ -1,20 +1,21 @@
 [gd_scene format=3 uid="uid://h4mar2n74155"]
 
-[ext_resource type="Texture2D" uid="uid://ddf515ueuikpa" path="res://asset/Sprout Lands - UI Pack - Basic pack/Sprite sheets/Sprite sheet for Basic Pack.png" id="1_mg5ta"]
 [ext_resource type="Script" uid="uid://dql7botutwkt7" path="res://revelation/revelation.gd" id="1_ysx83"]
-[ext_resource type="PackedScene" uid="uid://dk68n4r6i6ay3" path="res://HUD/button.tscn" id="2_ysx83"]
+[ext_resource type="Texture2D" uid="uid://dneco8vsl13dv" path="res://asset/sprout_lands/ui/ui.png" id="2_xj7ch"]
+[ext_resource type="PackedScene" uid="uid://dk68n4r6i6ay3" path="res://hud/button.tscn" id="2_ysx83"]
+[ext_resource type="Texture2D" uid="uid://cv3ihufpnoas2" path="res://asset/icon/paste_icon.png" id="4_xj7ch"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xj7ch"]
-atlas = ExtResource("1_mg5ta")
+atlas = ExtResource("2_xj7ch")
 region = Rect2(256, 64, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x7t68"]
-atlas = ExtResource("1_mg5ta")
+atlas = ExtResource("2_xj7ch")
 region = Rect2(256, 81, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ysx83"]
-atlas = ExtResource("1_mg5ta")
-region = Rect2(864, 193, 16, 15)
+atlas = ExtResource("4_xj7ch")
+region = Rect2(1, 1, 14, 14)
 
 [sub_resource type="Animation" id="Animation_ysx83"]
 length = 0.001
@@ -90,7 +91,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_mg5ta")
+texture = ExtResource("2_xj7ch")
 region_rect = Rect2(59, 59, 26, 26)
 patch_margin_left = 8
 patch_margin_top = 8

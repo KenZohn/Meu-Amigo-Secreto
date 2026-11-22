@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://jlbf8ag8wme4"]
 
-[ext_resource type="Texture2D" uid="uid://b8cdgtfb5pw3a" path="res://asset/Sprout Lands - UI Pack - Basic pack/emojis-free/speech_bubble_grey.png" id="1_u0cjh"]
-[ext_resource type="Script" uid="uid://da55cvmsqc0uj" path="res://HUD/message_bubble.gd" id="1_x3se2"]
+[ext_resource type="Script" uid="uid://da55cvmsqc0uj" path="res://hud/message_bubble.gd" id="1_x3se2"]
+[ext_resource type="Texture2D" uid="uid://nh6mygqsl241" path="res://asset/sprout_lands/ui/speech_bubble.png" id="2_oqvdu"]
 
 [sub_resource type="Animation" id="Animation_x3se2"]
 length = 0.001
@@ -24,7 +24,7 @@ script = ExtResource("1_x3se2")
 
 [node name="Background" type="NinePatchRect" parent="." unique_id=1824544467]
 layout_mode = 2
-texture = ExtResource("1_u0cjh")
+texture = ExtResource("2_oqvdu")
 region_rect = Rect2(11, 11, 42, 47)
 patch_margin_left = 25
 patch_margin_top = 5
@@ -40,7 +40,7 @@ theme_override_constants/margin_bottom = 8
 
 [node name="Label" type="Label" parent="Margin" unique_id=166031119]
 layout_mode = 2
-theme_override_colors/font_outline_color = Color(0.99999994, 0.22953573, 0.17418528, 1)
+theme_override_colors/font_outline_color = Color(1, 0.23137255, 0.17254902, 1)
 theme_override_constants/outline_size = 4
 theme_override_font_sizes/font_size = 12
 

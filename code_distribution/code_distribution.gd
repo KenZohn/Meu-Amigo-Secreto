@@ -7,6 +7,8 @@ const MESSAGES = [
 	"Depois, envie a cada participante."]
 
 func _ready() -> void:
+	$CenterContainer/Control/Panel/PlayersArea/ScrollContainer.get_v_scroll_bar().value_changed.connect(_on_scroll_changed)
+	
 	show_code_card()
 	
 	$CenterContainer/Control/Instruction.show_massage(MESSAGES)
@@ -75,8 +77,21 @@ func show_code_card() -> void:
 		number += 1
 
 
+func _on_scroll_changed(_value: float) -> void:
+	UiManager.message_bubble.hide_message()
+
+
 func _on_return_button_pressed() -> void:
-	Transition.change_screen(load(Scene.RESTRICTION_ADDITION))
+	var confirmation_dialog = preload(Scene.CONFIRMATION_DIALOG).instantiate()
+			
+	confirmation_dialog.show_dialog("Os códigos sorteados serão perdidos. Deseja voltar à tela anterior?")
+	
+	confirmation_dialog.confirm.connect(
+		func():
+			Transition.change_screen(load(Scene.RESTRICTION_ADDITION))
+	)
+	
+	add_child(confirmation_dialog)
 
 
 func _on_end_button_pressed() -> void:

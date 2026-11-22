@@ -7,8 +7,12 @@ const MESSAGES = [
 	"O limite é de 15 caracteres.",
 	"O X remove um participante."]
 
+var adjusting_scroll := false
+
 
 func _ready() -> void:
+	$CenterContainer/Control/Panel/PlayersArea/ScrollContainer.get_v_scroll_bar().value_changed.connect(_on_scroll_changed)
+	
 	if PlayerManager.players:
 		for player in PlayerManager.players:
 			add_player(player)
@@ -56,9 +60,7 @@ func get_players_name() -> bool:
 		var player_name: String = name_field.text.strip_edges()
 		
 		if player_name.is_empty() or names.has(player_name):
-			name_field.grab_focus()
-			name_field.select_all()
-			$CenterContainer/Control/Panel/PlayersArea/ScrollContainer.ensure_control_visible(name_field)
+			await focus_control(name_field)
 			
 			if player_name.is_empty():
 				UiManager.message_bubble.show_message(name_field, "Insira um nome.")
@@ -77,16 +79,34 @@ func get_players_name() -> bool:
 	return true
 
 
+func focus_control(field):
+	adjusting_scroll = true
+	
+	field.grab_focus()
+	$CenterContainer/Control/Panel/PlayersArea/ScrollContainer.ensure_control_visible(field)
+	await get_tree().process_frame
+	adjusting_scroll = false
+
+
+func _on_scroll_changed(_value: float) -> void:
+	if not adjusting_scroll:
+		UiManager.message_bubble.hide_message()
+
+
 func _on_name_text_changed(new_text: String, name_field: LineEdit) -> void:
 	for character in new_text:
 		if not Constants.ALPHABET.contains(character.to_upper()):
+			await focus_control(name_field)
 			UiManager.message_bubble.show_message(name_field, "Caractere inválido.")
-			break
+			return
+	
+	if new_text.length() > Constants.MAX_NAME_LENGTH:
+		await focus_control(name_field)
 		
-		if new_text.length() > Constants.MAX_NAME_LENGTH:
-			name_field.text = new_text.left(Constants.MAX_NAME_LENGTH)
-			name_field.caret_column = Constants.MAX_NAME_LENGTH
-			UiManager.message_bubble.show_message(name_field, "Limite de 15 caracteres.")
+		name_field.text = new_text.left(Constants.MAX_NAME_LENGTH)
+		name_field.caret_column = Constants.MAX_NAME_LENGTH
+		
+		UiManager.message_bubble.show_message(name_field, "Limite de 15 caracteres.")
 
 
 func _on_add_button_pressed() -> void:
@@ -99,7 +119,7 @@ func _on_player_deleted() -> void:
 
 
 func _on_next_button_pressed() -> void:
-	if get_players_name():
+	if await get_players_name():
 		Transition.change_screen(load(Scene.RESTRICTION_ADDITION))
 
 

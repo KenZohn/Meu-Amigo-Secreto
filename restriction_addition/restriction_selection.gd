@@ -14,6 +14,8 @@ var selected_players: Array[String] = []
 func _ready() -> void:
 	get_tree().paused = true
 	
+	$CenterContainer/Control/Content/Panel/PlayersArea/ScrollContainer.get_v_scroll_bar().value_changed.connect(_on_scroll_changed)
+	
 	$AnimationPlayer.play("pop_in")
 	
 	load_player_selection_card()
@@ -72,6 +74,10 @@ func can_select_restriction(player_selection) -> bool:
 	
 	UiManager.message_bubble.hide_message()
 	return true
+
+
+func _on_scroll_changed(_value: float) -> void:
+	UiManager.message_bubble.hide_message()
 
 
 func _on_confirm_button_pressed() -> void:

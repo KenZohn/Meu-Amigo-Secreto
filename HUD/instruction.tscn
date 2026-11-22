@@ -1,27 +1,27 @@
 [gd_scene format=3 uid="uid://c527cj1iyduoy"]
 
-[ext_resource type="Script" uid="uid://kd525j64xfcn" path="res://HUD/instruction.gd" id="1_r0b4r"]
-[ext_resource type="Texture2D" uid="uid://ddf515ueuikpa" path="res://asset/Sprout Lands - UI Pack - Basic pack/Sprite sheets/Sprite sheet for Basic Pack.png" id="2_jtp0w"]
-[ext_resource type="Texture2D" uid="uid://d0efv5dllq8ln" path="res://asset/Sprout Lands - UI Pack - Basic pack/emojis-free/Emoji_Spritesheet_Free.png" id="3_7ngs8"]
-[ext_resource type="Texture2D" uid="uid://b8cdgtfb5pw3a" path="res://asset/Sprout Lands - UI Pack - Basic pack/emojis-free/speech_bubble_grey.png" id="4_x66jy"]
+[ext_resource type="Script" uid="uid://kd525j64xfcn" path="res://hud/instruction.gd" id="1_r0b4r"]
+[ext_resource type="Texture2D" uid="uid://dneco8vsl13dv" path="res://asset/sprout_lands/ui/ui.png" id="2_1ra3h"]
+[ext_resource type="Texture2D" uid="uid://ba2pysp8u1s5u" path="res://asset/sprout_lands/ui/emoji.png" id="3_gwj8m"]
+[ext_resource type="Texture2D" uid="uid://nh6mygqsl241" path="res://asset/sprout_lands/ui/speech_bubble.png" id="4_ijkp3"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_wxqf4"]
-atlas = ExtResource("3_7ngs8")
+[sub_resource type="AtlasTexture" id="AtlasTexture_d7vyd"]
+atlas = ExtResource("3_gwj8m")
 region = Rect2(64, 128, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_wwxy2"]
-atlas = ExtResource("3_7ngs8")
+[sub_resource type="AtlasTexture" id="AtlasTexture_136gy"]
+atlas = ExtResource("3_gwj8m")
 region = Rect2(64, 128, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_72nfv"]
-atlas = ExtResource("3_7ngs8")
+[sub_resource type="AtlasTexture" id="AtlasTexture_25ygh"]
+atlas = ExtResource("3_gwj8m")
 region = Rect2(96, 128, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_45uin"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_wxqf4")
+"texture": SubResource("AtlasTexture_d7vyd")
 }],
 "loop": 1,
 "name": &"idle",
@@ -29,10 +29,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_wwxy2")
+"texture": SubResource("AtlasTexture_136gy")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_72nfv")
+"texture": SubResource("AtlasTexture_25ygh")
 }],
 "loop": 1,
 "name": &"talk",
@@ -49,7 +49,7 @@ layout_mode = 0
 offset_top = 1.2414034e-05
 offset_right = 36.0
 offset_bottom = 36.00001
-texture = ExtResource("2_jtp0w")
+texture = ExtResource("2_1ra3h")
 region_rect = Rect2(59, 59, 26, 26)
 patch_margin_left = 4
 patch_margin_top = 4
@@ -60,7 +60,7 @@ patch_margin_bottom = 4
 position = Vector2(18, 18.000002)
 scale = Vector2(0.9375, 0.9375)
 sprite_frames = SubResource("SpriteFrames_45uin")
-animation = &"talk"
+animation = &"idle"
 
 [node name="Bubble" type="NinePatchRect" parent="." unique_id=662720103]
 layout_mode = 0
@@ -69,7 +69,7 @@ offset_top = 1.2414034e-05
 offset_right = 360.0
 offset_bottom = 284.0
 rotation = 1.5707964
-texture = ExtResource("4_x66jy")
+texture = ExtResource("4_ijkp3")
 region_rect = Rect2(11, 11, 42, 47)
 patch_margin_left = 5
 patch_margin_top = 5

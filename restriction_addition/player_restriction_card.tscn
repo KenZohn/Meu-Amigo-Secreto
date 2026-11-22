@@ -1,13 +1,12 @@
 [gd_scene format=3 uid="uid://7fpupkcwxwte"]
 
 [ext_resource type="Script" uid="uid://cbpbwq4yc1nyy" path="res://restriction_addition/player_restriction_card.gd" id="1_13580"]
-[ext_resource type="Texture2D" uid="uid://ddf515ueuikpa" path="res://asset/Sprout Lands - UI Pack - Basic pack/Sprite sheets/Sprite sheet for Basic Pack.png" id="2_n1jw8"]
-[ext_resource type="PackedScene" uid="uid://dk68n4r6i6ay3" path="res://HUD/button.tscn" id="3_mxbat"]
-[ext_resource type="Texture2D" uid="uid://bt1njoc0eeqly" path="res://asset/Sprout Lands - UI Pack - Basic pack/Sprite sheets/Icons/All Icons.png" id="4_ebu26"]
+[ext_resource type="Texture2D" uid="uid://dneco8vsl13dv" path="res://asset/sprout_lands/ui/ui.png" id="2_rqp8x"]
+[ext_resource type="PackedScene" uid="uid://dk68n4r6i6ay3" path="res://hud/button.tscn" id="3_mxbat"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8fjqf"]
-atlas = ExtResource("4_ebu26")
-region = Rect2(240, 32, 16, 16)
+atlas = ExtResource("2_rqp8x")
+region = Rect2(848, 224, 16, 16)
 
 [node name="PlayerRestriciton" type="Control" unique_id=207675311]
 custom_minimum_size = Vector2(264, 32)
@@ -15,6 +14,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 264.0
 offset_bottom = 32.0
+mouse_filter = 1
 script = ExtResource("1_13580")
 
 [node name="Background" type="NinePatchRect" parent="." unique_id=1699747801]
@@ -23,7 +23,7 @@ custom_maximum_size = Vector2(264, 32)
 layout_mode = 1
 offset_right = 232.0
 offset_bottom = 32.0
-texture = ExtResource("2_n1jw8")
+texture = ExtResource("2_rqp8x")
 region_rect = Rect2(59, 59, 26, 26)
 patch_margin_left = 8
 patch_margin_top = 8

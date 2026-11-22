@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://c7vl2gxq52jvq"]
 
 [ext_resource type="Script" uid="uid://ckk45dsm2jcov" path="res://restriction_addition/player_selection_card.gd" id="1_lbft6"]
-[ext_resource type="Texture2D" uid="uid://ddf515ueuikpa" path="res://asset/Sprout Lands - UI Pack - Basic pack/Sprite sheets/Sprite sheet for Basic Pack.png" id="2_2bpsy"]
+[ext_resource type="Texture2D" uid="uid://dneco8vsl13dv" path="res://asset/sprout_lands/ui/ui.png" id="2_lbft6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x7t68"]
-atlas = ExtResource("2_2bpsy")
+atlas = ExtResource("2_lbft6")
 region = Rect2(688, 224, 16, 16)
 
 [node name="PlayerRestricted" type="Control" unique_id=207675311]
@@ -13,6 +13,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 232.0
 offset_bottom = 32.0
+mouse_filter = 1
 script = ExtResource("1_lbft6")
 
 [node name="Background" type="NinePatchRect" parent="." unique_id=1699747801]
@@ -22,7 +23,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_2bpsy")
+texture = ExtResource("2_lbft6")
 region_rect = Rect2(107, 59, 26, 26)
 patch_margin_left = 8
 patch_margin_top = 8

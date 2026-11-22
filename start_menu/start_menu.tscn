@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://dtlb8sata2n5y"]
 
 [ext_resource type="Script" uid="uid://cap057iptvk8w" path="res://start_menu/start_menu.gd" id="1_pelf0"]
-[ext_resource type="Texture2D" uid="uid://ddf515ueuikpa" path="res://asset/Sprout Lands - UI Pack - Basic pack/Sprite sheets/Sprite sheet for Basic Pack.png" id="1_xloss"]
-[ext_resource type="PackedScene" uid="uid://dk68n4r6i6ay3" path="res://HUD/button.tscn" id="3_pelf0"]
+[ext_resource type="Texture2D" uid="uid://dneco8vsl13dv" path="res://asset/sprout_lands/ui/ui.png" id="2_pelf0"]
+[ext_resource type="PackedScene" uid="uid://dk68n4r6i6ay3" path="res://hud/button.tscn" id="3_pelf0"]
 
 [node name="StartMenu" type="Control" unique_id=1996388936]
 layout_mode = 3
@@ -29,12 +29,12 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -152.0
+offset_left = -156.0
 offset_top = -86.0
-offset_right = 152.0
+offset_right = 156.0
 offset_bottom = -30.0
 grow_horizontal = 2
-texture = ExtResource("1_xloss")
+texture = ExtResource("2_pelf0")
 region_rect = Rect2(455, 139, 30, 28)
 patch_margin_left = 8
 patch_margin_top = 4
@@ -54,7 +54,7 @@ offset_right = 121.5
 offset_bottom = 11.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(0.5976086, 0.8568674, 0.764467, 1)
+theme_override_colors/font_color = Color(0.60784316, 0.83137256, 0.7647059, 1)
 theme_override_colors/font_outline_color = Color(0.33660764, 0.3366076, 0.3366076, 1)
 theme_override_constants/outline_size = 6
 theme_override_font_sizes/font_size = 23

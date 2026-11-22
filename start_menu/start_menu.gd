@@ -2,7 +2,7 @@ extends Control
 
 
 func _ready() -> void:
-	var cursor_image = load("res://asset/Sprout Lands - UI Pack - Basic pack/Sprite sheets/Mouse sprites/Triangle Mouse icon 1.png") as Texture2D
+	var cursor_image = load("res://asset/sprout_lands/ui/mouse/triangle_mouse _1.png") as Texture2D
 	var image = cursor_image.get_image()
 	
 	image.resize(

@@ -1,11 +1,13 @@
+@tool
 extends PanelContainer
 
 
-func show_message(target, message: String) -> void:
+func show_message(target, message: String, color: Color = Color("ff3b2cff")) -> void:
 	scale = Vector2.ONE
 	pivot_offset = size / 2
 	
 	$Margin/Label.text = message
+	$Margin/Label.add_theme_color_override("font_outline_color", color)
 	
 	reset_size()
 	

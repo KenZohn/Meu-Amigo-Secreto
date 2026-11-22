@@ -1,20 +1,20 @@
 [gd_scene format=3 uid="uid://ih5hhtpah2iu"]
 
 [ext_resource type="Script" uid="uid://bg8tr8xd6tu7b" path="res://player_addition/player_card.gd" id="1_xwtd4"]
-[ext_resource type="Texture2D" uid="uid://ddf515ueuikpa" path="res://asset/Sprout Lands - UI Pack - Basic pack/Sprite sheets/Sprite sheet for Basic Pack.png" id="2_ifo2u"]
-[ext_resource type="PackedScene" uid="uid://dk68n4r6i6ay3" path="res://HUD/button.tscn" id="3_owv5i"]
-[ext_resource type="Texture2D" uid="uid://bt1njoc0eeqly" path="res://asset/Sprout Lands - UI Pack - Basic pack/Sprite sheets/Icons/All Icons.png" id="4_ppig5"]
+[ext_resource type="Texture2D" uid="uid://dneco8vsl13dv" path="res://asset/sprout_lands/ui/ui.png" id="2_hb5cn"]
+[ext_resource type="PackedScene" uid="uid://dk68n4r6i6ay3" path="res://hud/button.tscn" id="3_owv5i"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8fjqf"]
-atlas = ExtResource("4_ppig5")
-region = Rect2(208, 32, 16, 16)
+atlas = ExtResource("2_hb5cn")
+region = Rect2(816, 224, 16, 16)
 
-[node name="Player" type="Control" unique_id=207675311]
+[node name="PlayerCard" type="Control" unique_id=207675311]
 custom_minimum_size = Vector2(264, 32)
 layout_mode = 3
 anchors_preset = 0
 offset_right = 264.0
 offset_bottom = 32.0
+mouse_filter = 1
 script = ExtResource("1_xwtd4")
 
 [node name="Background" type="NinePatchRect" parent="." unique_id=1699747801]
@@ -24,7 +24,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_ifo2u")
+texture = ExtResource("2_hb5cn")
 region_rect = Rect2(59, 59, 26, 26)
 patch_margin_left = 8
 patch_margin_top = 8

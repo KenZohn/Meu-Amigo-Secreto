@@ -1,29 +1,21 @@
 [gd_scene format=3 uid="uid://cja0g738ptcnn"]
 
 [ext_resource type="Script" uid="uid://dyrf6wwaieyk5" path="res://restriction_addition/restriction_addition.gd" id="1_2cjks"]
-[ext_resource type="PackedScene" uid="uid://c527cj1iyduoy" path="res://HUD/instruction.tscn" id="2_fq17q"]
-[ext_resource type="Texture2D" uid="uid://ddf515ueuikpa" path="res://asset/Sprout Lands - UI Pack - Basic pack/Sprite sheets/Sprite sheet for Basic Pack.png" id="2_hftoc"]
-[ext_resource type="PackedScene" uid="uid://dk68n4r6i6ay3" path="res://HUD/button.tscn" id="3_g6hvf"]
-[ext_resource type="Texture2D" uid="uid://d0efv5dllq8ln" path="res://asset/Sprout Lands - UI Pack - Basic pack/emojis-free/Emoji_Spritesheet_Free.png" id="5_a5mlx"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_d8tag"]
-atlas = ExtResource("2_hftoc")
-region = Rect2(107, 59, 26, 26)
+[ext_resource type="PackedScene" uid="uid://c527cj1iyduoy" path="res://hud/instruction.tscn" id="2_fq17q"]
+[ext_resource type="Texture2D" uid="uid://dneco8vsl13dv" path="res://asset/sprout_lands/ui/ui.png" id="3_fq17q"]
+[ext_resource type="PackedScene" uid="uid://dk68n4r6i6ay3" path="res://hud/button.tscn" id="3_g6hvf"]
+[ext_resource type="Texture2D" uid="uid://ba2pysp8u1s5u" path="res://asset/sprout_lands/ui/emoji.png" id="5_kjdfe"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_66jy8"]
-atlas = ExtResource("2_hftoc")
+atlas = ExtResource("3_fq17q")
 region = Rect2(257, 65, 14, 14)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_kvt3s"]
-atlas = ExtResource("2_hftoc")
-region = Rect2(107, 11, 26, 26)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_0gup6"]
-atlas = ExtResource("5_a5mlx")
+atlas = ExtResource("5_kjdfe")
 region = Rect2(34, 2, 28, 28)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_47oun"]
-atlas = ExtResource("2_hftoc")
+atlas = ExtResource("3_fq17q")
 region = Rect2(272, 16, 16, 16)
 
 [node name="Restrictions" type="Control" unique_id=846800516]
@@ -34,15 +26,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_2cjks")
-
-[node name="Background" type="ColorRect" parent="." unique_id=1014317440]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.75686276, 0.78431374, 0.7254902, 1)
 
 [node name="CenterContainer" type="CenterContainer" parent="." unique_id=108441868]
 layout_mode = 1
@@ -75,7 +58,7 @@ offset_right = 164.0
 offset_bottom = 164.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_hftoc")
+texture = ExtResource("3_fq17q")
 region_rect = Rect2(201, 57, 30, 30)
 patch_margin_left = 8
 patch_margin_top = 8
@@ -112,11 +95,12 @@ offset_left = 16.0
 offset_top = 48.0
 offset_right = 312.0
 offset_bottom = 232.0
-texture = SubResource("AtlasTexture_d8tag")
-patch_margin_left = 8
-patch_margin_top = 8
-patch_margin_right = 8
-patch_margin_bottom = 8
+texture = ExtResource("3_fq17q")
+region_rect = Rect2(107, 59, 26, 26)
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
 
 [node name="ScrollContainer" type="ScrollContainer" parent="CenterContainer/Control/Panel/PlayersArea" unique_id=859637234]
 layout_mode = 1
@@ -148,7 +132,8 @@ offset_left = 16.0
 offset_top = 240.0
 offset_right = 84.0
 offset_bottom = 272.0
-texture = SubResource("AtlasTexture_kvt3s")
+texture = ExtResource("3_fq17q")
+region_rect = Rect2(107, 11, 26, 26)
 patch_margin_left = 8
 patch_margin_top = 8
 patch_margin_right = 8

@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://ddk88hgr37t1f"
-path="res://.godot/imported/MomoTrustDisplay-Regular.ttf-5e2a456a78e67001cfd2b2ab3c407b30.fontdata"
+uid="uid://bdaneb33tla2i"
+path="res://.godot/imported/MomoTrustDisplay-Regular.ttf-763ae9eba0ab17f8a18703ee9657c8a1.fontdata"
 
 [deps]
 
-source_file="res://asset/Font/MomoTrustDisplay-Regular.ttf"
-dest_files=["res://.godot/imported/MomoTrustDisplay-Regular.ttf-5e2a456a78e67001cfd2b2ab3c407b30.fontdata"]
+source_file="res://asset/font/MomoTrustDisplay-Regular.ttf"
+dest_files=["res://.godot/imported/MomoTrustDisplay-Regular.ttf-763ae9eba0ab17f8a18703ee9657c8a1.fontdata"]
 
 [params]
 

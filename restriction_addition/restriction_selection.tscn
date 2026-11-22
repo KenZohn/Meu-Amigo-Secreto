@@ -1,16 +1,12 @@
 [gd_scene format=3 uid="uid://chaljok4a67uc"]
 
 [ext_resource type="Script" uid="uid://dvi6po6xj3h7g" path="res://restriction_addition/restriction_selection.gd" id="1_7jqmd"]
-[ext_resource type="Texture2D" uid="uid://ddf515ueuikpa" path="res://asset/Sprout Lands - UI Pack - Basic pack/Sprite sheets/Sprite sheet for Basic Pack.png" id="1_31o30"]
-[ext_resource type="PackedScene" uid="uid://c527cj1iyduoy" path="res://HUD/instruction.tscn" id="2_0y2eg"]
-[ext_resource type="PackedScene" uid="uid://dk68n4r6i6ay3" path="res://HUD/button.tscn" id="2_7jqmd"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6j1id"]
-atlas = ExtResource("1_31o30")
-region = Rect2(59, 59, 26, 26)
+[ext_resource type="PackedScene" uid="uid://c527cj1iyduoy" path="res://hud/instruction.tscn" id="2_0y2eg"]
+[ext_resource type="PackedScene" uid="uid://dk68n4r6i6ay3" path="res://hud/button.tscn" id="2_7jqmd"]
+[ext_resource type="Texture2D" uid="uid://dneco8vsl13dv" path="res://asset/sprout_lands/ui/ui.png" id="3_0y2eg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4gdar"]
-atlas = ExtResource("1_31o30")
+atlas = ExtResource("3_0y2eg")
 region = Rect2(257, 65, 14, 14)
 
 [sub_resource type="Animation" id="Animation_0y2eg"]
@@ -156,7 +152,7 @@ offset_right = 148.0
 offset_bottom = 152.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_31o30")
+texture = ExtResource("3_0y2eg")
 region_rect = Rect2(201, 9, 30, 30)
 patch_margin_left = 8
 patch_margin_top = 8
@@ -185,7 +181,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_31o30")
+texture = ExtResource("3_0y2eg")
 region_rect = Rect2(107, 11, 26, 26)
 patch_margin_left = 4
 patch_margin_top = 4
@@ -219,11 +215,12 @@ offset_left = 16.0
 offset_top = 56.0
 offset_right = 280.0
 offset_bottom = 208.0
-texture = SubResource("AtlasTexture_6j1id")
-patch_margin_left = 8
-patch_margin_top = 8
-patch_margin_right = 8
-patch_margin_bottom = 8
+texture = ExtResource("3_0y2eg")
+region_rect = Rect2(59, 59, 26, 26)
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
 
 [node name="ScrollContainer" type="ScrollContainer" parent="CenterContainer/Control/Content/Panel/PlayersArea" unique_id=450983049]
 layout_mode = 1

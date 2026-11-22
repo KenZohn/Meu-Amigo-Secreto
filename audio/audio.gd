@@ -1,11 +1,11 @@
 extends Node
 
 const CONFIRM = {
-	"sound": preload("res://asset/Sprout Sorry pack/Audio/blup_1.wav"),
+	"sound": preload("res://asset/sprout_lands/audio/blup_1.wav"),
 	"volume": 0
 }
 
 const MESSAGE = {
-	"sound": preload("res://asset/Sprout Sorry pack/Audio/squick_2.wav"),
+	"sound": preload("res://asset/sprout_lands/audio/squick_2.wav"),
 	"volume": -2
 }
