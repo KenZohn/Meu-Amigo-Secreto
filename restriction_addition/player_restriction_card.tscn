@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cbpbwq4yc1nyy" path="res://restriction_addition/player_restriction_card.gd" id="1_13580"]
 [ext_resource type="Texture2D" uid="uid://dneco8vsl13dv" path="res://asset/sprout_lands/ui/ui.png" id="2_rqp8x"]
-[ext_resource type="PackedScene" uid="uid://dk68n4r6i6ay3" path="res://hud/button.tscn" id="3_mxbat"]
+[ext_resource type="PackedScene" uid="uid://dk68n4r6i6ay3" path="res://ui/button.tscn" id="3_mxbat"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8fjqf"]
 atlas = ExtResource("2_rqp8x")

@@ -18,7 +18,7 @@ func _ready() -> void:
 	
 	$AnimationPlayer.play("pop_in")
 	
-	load_player_selection_card()
+	load_players()
 	
 	$CenterContainer/Control/Content/Panel/Control/Number.text = player_number
 	$CenterContainer/Control/Content/Panel/Control/Name.text = player_name
@@ -26,7 +26,7 @@ func _ready() -> void:
 	$CenterContainer/Control/Content/Instruction.show_massage(MESSAGES)
 
 
-func load_player_selection_card() -> void:
+func load_players() -> void:
 	var player_selection_card = preload(Scene.PLAYER_SELECTION_CARD)
 	
 	for player in PlayerManager.players:

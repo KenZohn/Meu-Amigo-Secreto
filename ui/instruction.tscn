@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c527cj1iyduoy"]
 
-[ext_resource type="Script" uid="uid://kd525j64xfcn" path="res://hud/instruction.gd" id="1_r0b4r"]
+[ext_resource type="Script" uid="uid://kd525j64xfcn" path="res://ui/instruction.gd" id="1_r0b4r"]
 [ext_resource type="Texture2D" uid="uid://dneco8vsl13dv" path="res://asset/sprout_lands/ui/ui.png" id="2_1ra3h"]
 [ext_resource type="Texture2D" uid="uid://ba2pysp8u1s5u" path="res://asset/sprout_lands/ui/emoji.png" id="3_gwj8m"]
 [ext_resource type="Texture2D" uid="uid://nh6mygqsl241" path="res://asset/sprout_lands/ui/speech_bubble.png" id="4_ijkp3"]

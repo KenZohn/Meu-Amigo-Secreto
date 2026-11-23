@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dql7botutwkt7" path="res://revelation/revelation.gd" id="1_ysx83"]
 [ext_resource type="Texture2D" uid="uid://dneco8vsl13dv" path="res://asset/sprout_lands/ui/ui.png" id="2_xj7ch"]
-[ext_resource type="PackedScene" uid="uid://dk68n4r6i6ay3" path="res://hud/button.tscn" id="2_ysx83"]
+[ext_resource type="PackedScene" uid="uid://dk68n4r6i6ay3" path="res://ui/button.tscn" id="2_ysx83"]
 [ext_resource type="Texture2D" uid="uid://cv3ihufpnoas2" path="res://asset/icon/paste_icon.png" id="4_xj7ch"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xj7ch"]

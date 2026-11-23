@@ -13,7 +13,6 @@ func _ready() -> void:
 	await get_tree().create_timer(5.0).timeout
 	
 	$AnimationPlayer.play("fade_out")
-	
 	await $AnimationPlayer.animation_finished
 	
 	Transition.change_screen(load(Scene.START_MENU), "fade")

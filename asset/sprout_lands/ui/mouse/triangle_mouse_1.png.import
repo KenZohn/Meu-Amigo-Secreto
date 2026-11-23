@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c7cxc5n72pgpk"
-path="res://.godot/imported/triangle_mouse _3.png-8a12393c540a6bec0f85e12f943aa771.ctex"
+uid="uid://fn0uxlm7sdy4"
+path="res://.godot/imported/triangle_mouse_1.png-8dfa7291189d7510c59538b580cf279b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://asset/sprout_lands/ui/mouse/triangle_mouse _3.png"
-dest_files=["res://.godot/imported/triangle_mouse _3.png-8a12393c540a6bec0f85e12f943aa771.ctex"]
+source_file="res://asset/sprout_lands/ui/mouse/triangle_mouse_1.png"
+dest_files=["res://.godot/imported/triangle_mouse_1.png-8dfa7291189d7510c59538b580cf279b.ctex"]
 
 [params]
 

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://jlbf8ag8wme4"]
 
-[ext_resource type="Script" uid="uid://da55cvmsqc0uj" path="res://hud/message_bubble.gd" id="1_x3se2"]
+[ext_resource type="Script" uid="uid://da55cvmsqc0uj" path="res://ui/message_bubble.gd" id="1_x3se2"]
 [ext_resource type="Texture2D" uid="uid://nh6mygqsl241" path="res://asset/sprout_lands/ui/speech_bubble.png" id="2_oqvdu"]
 
 [sub_resource type="Animation" id="Animation_x3se2"]

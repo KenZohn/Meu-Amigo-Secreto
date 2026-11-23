@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://b4caq8stdxw85"]
 
-[ext_resource type="Script" uid="uid://b6jywvwvsc1kc" path="res://hud/confirmation_dialog.gd" id="1_lepvw"]
+[ext_resource type="Script" uid="uid://b6jywvwvsc1kc" path="res://ui/confirmation_dialog.gd" id="1_lepvw"]
 [ext_resource type="Texture2D" uid="uid://dneco8vsl13dv" path="res://asset/sprout_lands/ui/ui.png" id="2_aij0g"]
-[ext_resource type="PackedScene" uid="uid://dk68n4r6i6ay3" path="res://hud/button.tscn" id="2_lepvw"]
+[ext_resource type="PackedScene" uid="uid://dk68n4r6i6ay3" path="res://ui/button.tscn" id="2_lepvw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pn4l7"]
 atlas = ExtResource("2_aij0g")
@@ -126,22 +126,21 @@ grow_vertical = 2
 layout_mode = 2
 
 [node name="Content" type="Control" parent="CenterContainer/Control" unique_id=1314602690]
-anchors_preset = 0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Panel" type="NinePatchRect" parent="CenterContainer/Control/Content" unique_id=626743378]
-custom_minimum_size = Vector2(216, 168)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -100.0
-offset_top = -84.0
-offset_right = 100.0
-offset_bottom = 84.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="NinePatchRect" parent="CenterContainer/Control/Content" unique_id=626743378]
+custom_minimum_size = Vector2(216, 168)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_aij0g")

@@ -25,25 +25,18 @@ func base62_encode(value: int, length: int) -> String:
 
 
 func generate_code(player_name: String, seconds: int) -> String:
-	var original_length := player_name.length()
+	var name_length := player_name.length()
 	
-	# Preenchimento até 15 caracteres
 	while player_name.length() < 15:
 		var i := player_name.length()
 		var index := (seconds + i * 13 + player_name.to_utf8_buffer()[0]) % Constants.ALPHABET.length()
 		player_name += Constants.ALPHABET[index]
 	
-	# Conversão do horário e comprimento
 	var time_code := base62_encode(seconds, 3)
-	var length_code := base62_encode(original_length, 2)
+	var length_code := base62_encode(name_length, 2)
 	
-	# Intercalação HCHCH
-	var metadata := ""
-	metadata += time_code[0] + length_code[0]
-	metadata += time_code[1] + length_code[1]
-	metadata += time_code[2]
+	var metadata := time_code[0] + length_code[0] + time_code[1] + length_code[1] + time_code[2]
 	
-	# Ofuscação dos 15 caracteres
 	var encrypted := ""
 	
 	for i in 15:
@@ -57,9 +50,7 @@ func generate_code(player_name: String, seconds: int) -> String:
 func show_code_card() -> void:
 	var current_time := Time.get_time_dict_from_system()
 	
-	var seconds: int = current_time.hour * 3600 \
-		+ current_time.minute * 60 \
-		+ current_time.second
+	var seconds: int = current_time.hour * 3600 + current_time.minute * 60 + current_time.second
 	
 	var number := 1
 	
@@ -83,7 +74,7 @@ func _on_scroll_changed(_value: float) -> void:
 
 func _on_return_button_pressed() -> void:
 	var confirmation_dialog = preload(Scene.CONFIRMATION_DIALOG).instantiate()
-			
+	
 	confirmation_dialog.show_dialog("Os códigos sorteados serão perdidos. Deseja voltar à tela anterior?")
 	
 	confirmation_dialog.confirm.connect(

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dk68n4r6i6ay3"]
 
 [ext_resource type="Texture2D" uid="uid://dneco8vsl13dv" path="res://asset/sprout_lands/ui/ui.png" id="2_3k13m"]
-[ext_resource type="Script" uid="uid://mxiqqsqe0w6u" path="res://hud/button.gd" id="2_n4tde"]
+[ext_resource type="Script" uid="uid://mxiqqsqe0w6u" path="res://ui/button.gd" id="2_n4tde"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3k13m"]
 atlas = ExtResource("2_3k13m")

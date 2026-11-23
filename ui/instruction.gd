@@ -10,7 +10,7 @@ func show_massage(messages: Array) -> void:
 	
 	if messages:
 		while true:
-			await show_text_letter_by_letter(messages[index])
+			await show_letter_by_letter(messages[index])
 			
 			$Timer.start(6.0)
 			await $Timer.timeout
@@ -18,7 +18,7 @@ func show_massage(messages: Array) -> void:
 			index = (index + 1) % messages.size()
 
 
-func show_text_letter_by_letter(message: String) -> void:
+func show_letter_by_letter(message: String) -> void:
 	if writing_text:
 		return
 	

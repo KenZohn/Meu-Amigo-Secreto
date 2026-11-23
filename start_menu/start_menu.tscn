@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cap057iptvk8w" path="res://start_menu/start_menu.gd" id="1_pelf0"]
 [ext_resource type="Texture2D" uid="uid://dneco8vsl13dv" path="res://asset/sprout_lands/ui/ui.png" id="2_pelf0"]
-[ext_resource type="PackedScene" uid="uid://dk68n4r6i6ay3" path="res://hud/button.tscn" id="3_pelf0"]
+[ext_resource type="PackedScene" uid="uid://dk68n4r6i6ay3" path="res://ui/button.tscn" id="3_pelf0"]
 
 [node name="StartMenu" type="Control" unique_id=1996388936]
 layout_mode = 3

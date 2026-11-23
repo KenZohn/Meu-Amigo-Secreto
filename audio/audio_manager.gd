@@ -11,4 +11,5 @@ func play_sound(sound_data: Dictionary) -> void:
 	add_child(audio)
 	
 	audio.finished.connect(audio.queue_free)
+	
 	audio.play()

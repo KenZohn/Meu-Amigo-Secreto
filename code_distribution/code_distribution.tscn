@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://1qrx1ek42hui"]
 
 [ext_resource type="Script" uid="uid://dwrid0hugp8kb" path="res://code_distribution/code_distribution.gd" id="1_jd6lu"]
-[ext_resource type="PackedScene" uid="uid://c527cj1iyduoy" path="res://hud/instruction.tscn" id="2_dhqvk"]
+[ext_resource type="PackedScene" uid="uid://c527cj1iyduoy" path="res://ui/instruction.tscn" id="2_dhqvk"]
 [ext_resource type="Texture2D" uid="uid://dneco8vsl13dv" path="res://asset/sprout_lands/ui/ui.png" id="3_dhqvk"]
-[ext_resource type="PackedScene" uid="uid://dk68n4r6i6ay3" path="res://hud/button.tscn" id="3_nhifg"]
+[ext_resource type="PackedScene" uid="uid://dk68n4r6i6ay3" path="res://ui/button.tscn" id="3_nhifg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wjdrc"]
 atlas = ExtResource("3_dhqvk")

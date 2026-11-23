@@ -1,8 +1,10 @@
 extends Control
 
+@onready var code_field = $CenterContainer/Control/CodePanel/Code
+
 
 func _ready() -> void:
-	$CenterContainer/Control/CodePanel/Code.grab_focus()
+	code_field.grab_focus()
 
 
 func base62_decode(value: String) -> int:
@@ -18,15 +20,12 @@ func reveal_name(code: String) -> String:
 	var encrypted := code.substr(0, 15)
 	var metadata := code.substr(15, 5)
 	
-	# Recuperação do horário
 	var time_code := metadata[0] + metadata[2] + metadata[4]
 	var seconds := base62_decode(time_code)
 	
-	# Recuperação do comprimento
 	var length_code := metadata[1] + metadata[3]
 	var original_length := base62_decode(length_code)
 	
-	# Desfaz a substituição
 	var player_name := ""
 	
 	for i in 15:
@@ -37,8 +36,12 @@ func reveal_name(code: String) -> String:
 	return player_name.substr(0, original_length)
 
 
+func _on_paste_button_pressed() -> void:
+	code_field.text = DisplayServer.clipboard_get()
+
+
 func _on_reveal_button_pressed() -> void:
-	var code = $CenterContainer/Control/CodePanel/Code.text
+	var code = code_field.text
 	
 	if code.length() == 20:
 		await Transition.fade_out()
@@ -49,14 +52,10 @@ func _on_reveal_button_pressed() -> void:
 		
 		add_child(my_secret_friend)
 	else:
-		print("Código inválido")
+		UiManager.message_bubble.show_message(code_field, "Código inválido.")
 		
-		$CenterContainer/Control/CodePanel/Code.grab_focus()
+		code_field.grab_focus()
 
 
 func _on_return_button_pressed() -> void:
 	Transition.change_screen(load(Scene.START_MENU))
-
-
-func _on_paste_button_pressed() -> void:
-	$CenterContainer/Control/CodePanel/Code.text = DisplayServer.clipboard_get()

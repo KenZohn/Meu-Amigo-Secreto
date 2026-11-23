@@ -11,12 +11,14 @@ const MESSAGES = [
 
 
 func _ready() -> void:
+	load_players()
+	update_players_number()
+	$CenterContainer/Control/Instruction.show_massage(MESSAGES)
+
+
+func load_players():
 	for player in PlayerManager.players:
 		add_player(player)
-	
-	update_players_number()
-	
-	$CenterContainer/Control/Instruction.show_massage(MESSAGES)
 
 
 func add_player(player_name) -> void:
@@ -40,7 +42,7 @@ func draw_names() -> Dictionary:
 	var players: Array[String] = PlayerManager.players.duplicate()
 	players.shuffle()
 	
-	# Primeira tentativa: ciclo único
+	# Ciclo único
 	var path: Array[String] = [players[0]]
 	var remaining: Array[String] = players.duplicate()
 	remaining.erase(players[0])
@@ -49,7 +51,7 @@ func draw_names() -> Dictionary:
 		one_cicle = true
 		return create_draw_result(path)
 	
-	# Segunda tentativa: apenas respeitar as restrições
+	# Sem ciclo único
 	players.shuffle()
 	
 	var result: Dictionary = {}

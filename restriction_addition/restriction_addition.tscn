@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://cja0g738ptcnn"]
 
 [ext_resource type="Script" uid="uid://dyrf6wwaieyk5" path="res://restriction_addition/restriction_addition.gd" id="1_2cjks"]
-[ext_resource type="PackedScene" uid="uid://c527cj1iyduoy" path="res://hud/instruction.tscn" id="2_fq17q"]
+[ext_resource type="PackedScene" uid="uid://c527cj1iyduoy" path="res://ui/instruction.tscn" id="2_fq17q"]
 [ext_resource type="Texture2D" uid="uid://dneco8vsl13dv" path="res://asset/sprout_lands/ui/ui.png" id="3_fq17q"]
-[ext_resource type="PackedScene" uid="uid://dk68n4r6i6ay3" path="res://hud/button.tscn" id="3_g6hvf"]
+[ext_resource type="PackedScene" uid="uid://dk68n4r6i6ay3" path="res://ui/button.tscn" id="3_g6hvf"]
 [ext_resource type="Texture2D" uid="uid://ba2pysp8u1s5u" path="res://asset/sprout_lands/ui/emoji.png" id="5_kjdfe"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_66jy8"]
