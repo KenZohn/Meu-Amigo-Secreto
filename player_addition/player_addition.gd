@@ -1,19 +1,14 @@
 extends Control
 
 @onready var players_container = $CenterContainer/Control/Panel/PlayersArea/ScrollContainer/VBoxContainer
-@onready var scroll_container = $CenterContainer/Control/Panel/PlayersArea/ScrollContainer
 
 const MESSAGES = [
 	"Quem vai participar?",
 	"O limite é de 15 caracteres.",
 	"O X remove um participante."]
 
-var adjusting_scroll := false
-
 
 func _ready() -> void:
-	scroll_container.get_v_scroll_bar().value_changed.connect(_on_scroll_changed)
-	
 	load_players()
 	
 	PlayerManager.restrictions.clear()
@@ -86,19 +81,10 @@ func get_players_name() -> bool:
 
 
 func focus_control(field):
-	adjusting_scroll = true
-	
 	field.grab_focus()
 	
-	scroll_container.ensure_control_visible(field)
+	$CenterContainer/Control/Panel/PlayersArea/ScrollContainer.ensure_control_visible(field)
 	await get_tree().process_frame
-	
-	adjusting_scroll = false
-
-
-func _on_scroll_changed(_value: float) -> void:
-	if not adjusting_scroll:
-		UiManager.message_bubble.hide_message()
 
 
 func _on_name_text_changed(new_text: String, name_field: LineEdit) -> void:

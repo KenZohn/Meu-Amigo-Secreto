@@ -1,6 +1,8 @@
 @tool
 extends PanelContainer
 
+var tween: Tween
+
 
 func show_message(target, message: String, color: Color = Color("ff3b2cff")) -> void:
 	scale = Vector2.ONE
@@ -27,19 +29,24 @@ func hide_message() -> void:
 
 
 func play_pop_up() -> void:
+	if tween and tween.is_running():
+		tween.kill()
+	
 	pivot_offset = size / 2
 	scale = Vector2.ZERO
 	
-	var tween = create_tween()
+	tween = create_tween()
 	tween.tween_property(self, "scale", Vector2(1.1, 1.1), 0.15)
 	tween.tween_property(self, "scale", Vector2.ONE, 0.08)
 
 
 func play_pop_down() -> void:
-	var tween = create_tween()
+	if tween and tween.is_running():
+		tween.kill()
+	
+	tween = create_tween()
 	tween.tween_property(self, "scale", Vector2.ZERO, 0.15)
-	await tween.finished
-	hide()
+	tween.tween_callback(hide)
 
 
 func _on_display_timer_timeout() -> void:

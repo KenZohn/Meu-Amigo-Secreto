@@ -42,11 +42,15 @@ func _on_button_up() -> void:
 	$Background.texture = normal_texture
 	$Label.position.y -= 2
 	$MarginContainer/Icon.position.y -= 2
-	
-	AudioManager.play_sound(Audio.CONFIRM)
 
 
 func _on_button_down() -> void:
 	$Background.texture = pressed_texture
 	$Label.position.y += 2
 	$MarginContainer/Icon.position.y += 2
+
+
+func _on_pressed() -> void:
+	UiManager.message_bubble.hide_message()
+	
+	AudioManager.play_sound(Audio.CONFIRM)

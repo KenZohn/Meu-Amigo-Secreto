@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://drlp5l2u050qa"]
+
+[ext_resource type="Script" uid="uid://cnpmwmue0mvr2" path="res://ui/scroll_container.gd" id="1_o18br"]
+
+[node name="ScrollContainer" type="ScrollContainer" unique_id=1344273560]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+vertical_scroll_mode = 2
+script = ExtResource("1_o18br")

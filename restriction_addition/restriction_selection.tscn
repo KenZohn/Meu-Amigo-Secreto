@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://c527cj1iyduoy" path="res://ui/instruction.tscn" id="2_0y2eg"]
 [ext_resource type="PackedScene" uid="uid://dk68n4r6i6ay3" path="res://ui/button.tscn" id="2_7jqmd"]
 [ext_resource type="Texture2D" uid="uid://dneco8vsl13dv" path="res://asset/sprout_lands/ui/ui.png" id="3_0y2eg"]
+[ext_resource type="PackedScene" uid="uid://drlp5l2u050qa" path="res://ui/scroll_container.tscn" id="4_1e26e"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4gdar"]
 atlas = ExtResource("3_0y2eg")
@@ -222,18 +223,8 @@ patch_margin_top = 4
 patch_margin_right = 4
 patch_margin_bottom = 4
 
-[node name="ScrollContainer" type="ScrollContainer" parent="CenterContainer/Control/Content/Panel/PlayersArea" unique_id=450983049]
+[node name="ScrollContainer" parent="CenterContainer/Control/Content/Panel/PlayersArea" unique_id=1344273560 instance=ExtResource("4_1e26e")]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 8.0
-offset_top = 8.0
-offset_right = -8.0
-offset_bottom = -8.0
-grow_horizontal = 2
-grow_vertical = 2
-vertical_scroll_mode = 2
 
 [node name="SelectionContainer" type="VBoxContainer" parent="CenterContainer/Control/Content/Panel/PlayersArea/ScrollContainer" unique_id=553923789]
 layout_mode = 2
