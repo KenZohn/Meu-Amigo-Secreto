@@ -1,14 +1,14 @@
 extends CanvasLayer
 
-@onready var selection_container = $CenterContainer/Control/Content/Panel/PlayersArea/ScrollContainer/SelectionContainer
+@onready var selection_container = $CenterContainer/Control/Content/Panel/ParticipantsArea/ScrollContainer/SelectionContainer
 
 const MESSAGES = [
 	"Quem essa pessoa não pode tirar?",
 	"Clique no nome para selecionar."]
 
-var player_number: String
-var player_name: String
-var selected_players: Array[String] = []
+var participant_number: String
+var participant_name: String
+var selected_participants: Array[String] = []
 
 
 func _ready() -> void:
@@ -16,58 +16,58 @@ func _ready() -> void:
 	
 	$AnimationPlayer.play("pop_in")
 	
-	load_players()
+	load_participants()
 	
-	$CenterContainer/Control/Content/Panel/Control/Number.text = player_number
-	$CenterContainer/Control/Content/Panel/Control/Name.text = player_name
+	$CenterContainer/Control/Content/Panel/Control/Number.text = participant_number
+	$CenterContainer/Control/Content/Panel/Control/Name.text = participant_name
 	
 	$CenterContainer/Control/Content/Instruction.show_massage(MESSAGES)
 
 
-func load_players() -> void:
-	var player_selection_card = preload(Scene.PARTICIPANT_SELECTION_CARD)
+func load_participants() -> void:
+	var participant_selection_card = preload(Scene.PARTICIPANT_SELECTION_CARD)
 	
-	for player in PlayerManager.players:
-		if player == player_name:
+	for participant in ParticipantManager.participants:
+		if participant == participant_name:
 			continue
 		
-		var player_selection = player_selection_card.instantiate()
-		var player_selection_name = player_selection.get_node("Name")
+		var participant_selection = participant_selection_card.instantiate()
+		var participant_selection_name = participant_selection.get_node("Name")
 		
-		player_selection_name.text = player
-		player_selection.restriction_selection = self
+		participant_selection_name.text = participant
+		participant_selection.restriction_selection = self
 		
-		if PlayerManager.restrictions.has(player_name):
-			if player_selection_name.text in PlayerManager.restrictions[player_name]:
-				player_selection.selected = true
-				player_selection.get_node("Icon").visible = true
+		if ParticipantManager.restrictions.has(participant_name):
+			if participant_selection_name.text in ParticipantManager.restrictions[participant_name]:
+				participant_selection.selected = true
+				participant_selection.get_node("Icon").visible = true
 		
-		selection_container.add_child(player_selection)
+		selection_container.add_child(participant_selection)
 
 
-func get_selected_players() -> void:
-	selected_players.clear()
+func get_selected_participants() -> void:
+	selected_participants.clear()
 	
-	for player in selection_container.get_children():
-		if player.selected:
-			selected_players.append(player.get_node("Name").text)
+	for participant in selection_container.get_children():
+		if participant.selected:
+			selected_participants.append(participant.get_node("Name").text)
 	
-	PlayerManager.restrictions[player_name] = selected_players.duplicate()
+	ParticipantManager.restrictions[participant_name] = selected_participants.duplicate()
 
 
-func can_select_restriction(player_selection) -> bool:
-	if player_selection.selected:
+func can_select_restriction(participant_selection) -> bool:
+	if participant_selection.selected:
 		UiManager.message_bubble.hide_message()
 		return true
 	
 	var selected_count = 0
 	
-	for player in selection_container.get_children():
-		if player.selected:
+	for participant in selection_container.get_children():
+		if participant.selected:
 			selected_count += 1
 	
 	if selected_count == selection_container.get_child_count() - 1:
-		UiManager.message_bubble.show_message(player_selection, "Não é possível restringir todos.")
+		UiManager.message_bubble.show_message(participant_selection, "Não é possível restringir todos.")
 		return false
 	
 	UiManager.message_bubble.hide_message()
@@ -75,7 +75,7 @@ func can_select_restriction(player_selection) -> bool:
 
 
 func _on_confirm_button_pressed() -> void:
-	get_selected_players()
+	get_selected_participants()
 	
 	get_parent().update_restricted()
 	

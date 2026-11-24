@@ -20,7 +20,7 @@ func _on_gui_input(event: InputEvent) -> void:
 			touching = false
 			
 			if not touch_moved:
-				select_player()
+				select_participant()
 	
 	elif event is InputEventScreenDrag and touching:
 		touch_distance += event.relative.length()
@@ -38,7 +38,7 @@ func _on_gui_input(event: InputEvent) -> void:
 				touching = false
 				
 				if not touch_moved:
-					select_player()
+					select_participant()
 	
 	elif event is InputEventMouseMotion and touching:
 		if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
@@ -48,7 +48,7 @@ func _on_gui_input(event: InputEvent) -> void:
 				touch_moved = true
 
 
-func select_player() -> void:
+func select_participant() -> void:
 	if restriction_selection:
 		if not restriction_selection.can_select_restriction(self):
 			return

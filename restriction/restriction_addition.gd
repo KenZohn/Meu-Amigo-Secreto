@@ -1,6 +1,6 @@
 extends Control
 
-@onready var players_container = $CenterContainer/Control/Panel/PlayersArea/ScrollContainer/VBoxContainer
+@onready var participants_container = $CenterContainer/Control/Panel/ParticipantsArea/ScrollContainer/VBoxContainer
 
 var one_cicle := false
 
@@ -11,53 +11,53 @@ const MESSAGES = [
 
 
 func _ready() -> void:
-	load_players()
-	update_players_number()
+	load_participants()
+	update_participants_number()
 	$CenterContainer/Control/Instruction.show_massage(MESSAGES)
 
 
-func load_players():
-	for player in PlayerManager.players:
-		add_player(player)
+func load_participants():
+	for participant in ParticipantManager.participants:
+		add_participant(participant)
 
 
-func add_player(player_name) -> void:
-	var player = preload(Scene.PARTICIPANT_RESTRICTION_CARD).instantiate()
+func add_participant(participant_name) -> void:
+	var participant = preload(Scene.PARTICIPANT_RESTRICTION_CARD).instantiate()
 	
-	player.get_node("Name").text = player_name
+	participant.get_node("Name").text = participant_name
 	
-	players_container.add_child(player)
+	participants_container.add_child(participant)
 
 
-func update_players_number() -> void:
-	var players = players_container.get_children()
+func update_participants_number() -> void:
+	var participants = participants_container.get_children()
 	
-	for i in players.size():
-		players[i].set_number(i + 1)
+	for i in participants.size():
+		participants[i].set_number(i + 1)
 	
-	$CenterContainer/Control/Panel/PlayersNumber/Value.text = str(players.size())
+	$CenterContainer/Control/Panel/ParticipantsNumber/Value.text = str(participants.size())
 
 
 func draw_names() -> Dictionary:
-	var players: Array[String] = PlayerManager.players.duplicate()
-	players.shuffle()
+	var participants: Array[String] = ParticipantManager.participants.duplicate()
+	participants.shuffle()
 	
 	# Ciclo único
-	var path: Array[String] = [players[0]]
-	var remaining: Array[String] = players.duplicate()
-	remaining.erase(players[0])
+	var path: Array[String] = [participants[0]]
+	var remaining: Array[String] = participants.duplicate()
+	remaining.erase(participants[0])
 	
 	if find_cycle(path, remaining):
 		one_cicle = true
 		return create_draw_result(path)
 	
 	# Sem ciclo único
-	players.shuffle()
+	participants.shuffle()
 	
 	var result: Dictionary = {}
-	var available: Array[String] = players.duplicate()
+	var available: Array[String] = participants.duplicate()
 	
-	if assign_players(players, available, result):
+	if assign_participants(participants, available, result):
 		one_cicle = false
 		return sort_result(result)
 	
@@ -68,12 +68,12 @@ func find_cycle(path: Array[String], remaining: Array[String]):
 	if remaining.is_empty():
 		return not is_restricted(path[-1], path[0])
 	
-	var current_player = path[-1]
+	var current_participant = path[-1]
 	var candidates: Array[String] = remaining.duplicate()
 	candidates.shuffle()
 	
 	for candidate in candidates:
-		if is_restricted(current_player, candidate):
+		if is_restricted(current_participant, candidate):
 			continue
 		
 		path.append(candidate)
@@ -88,42 +88,42 @@ func find_cycle(path: Array[String], remaining: Array[String]):
 	return false
 
 
-func assign_players(
-		players: Array[String],
+func assign_participants(
+		participants: Array[String],
 		available: Array[String],
 		result: Dictionary
 	) -> bool:
-	if result.size() == players.size():
+	if result.size() == participants.size():
 		return true
 	
-	var player = ""
+	var participant = ""
 	
-	for candidate in players:
+	for candidate in participants:
 		if not result.has(candidate):
-			player = candidate
+			participant = candidate
 			break
 	
 	var candidates = available.duplicate()
 	candidates.shuffle()
 	
 	for candidate in candidates:
-		if candidate == player or is_restricted(player, candidate):
+		if candidate == participant or is_restricted(participant, candidate):
 			continue
 		
-		result[player] = candidate
+		result[participant] = candidate
 		available.erase(candidate)
 		
-		if assign_players(players, available, result):
+		if assign_participants(participants, available, result):
 			return true
 		
-		result.erase(player)
+		result.erase(participant)
 		available.append(candidate)
 	
 	return false
 
 
-func is_restricted(player: String, target: String) -> bool:
-	return target in PlayerManager.restrictions.get(player, [])
+func is_restricted(participant: String, target: String) -> bool:
+	return target in ParticipantManager.restrictions.get(participant, [])
 
 
 func create_draw_result(path: Array[String]) -> Dictionary:
@@ -138,14 +138,14 @@ func create_draw_result(path: Array[String]) -> Dictionary:
 func sort_result(result: Dictionary) -> Dictionary:
 	var sorted_result: Dictionary = {}
 	
-	for player in PlayerManager.players:
-		sorted_result[player] = result[player]
+	for participant in ParticipantManager.participants:
+		sorted_result[participant] = result[participant]
 	
 	return sorted_result
 
 
 func _on_return_button_pressed() -> void:
-	if PlayerManager.restrictions:
+	if ParticipantManager.restrictions:
 		UiManager.show_confirmation(
 			"As restrições serão perdidas. Deseja voltar à tela anterior?",
 			func():
@@ -156,9 +156,9 @@ func _on_return_button_pressed() -> void:
 
 
 func _on_next_button_pressed() -> void:
-	PlayerManager.sort = draw_names().duplicate()
+	ParticipantManager.sort = draw_names().duplicate()
 	
-	if PlayerManager.sort:
+	if ParticipantManager.sort:
 		if one_cicle:
 			Transition.change_screen(load(Scene.CODE_DISTRIBUTION))
 		else:
@@ -168,4 +168,4 @@ func _on_next_button_pressed() -> void:
 					Transition.change_screen(load(Scene.CODE_DISTRIBUTION))
 			)
 	else:
-		UiManager.message_bubble.show_message($CenterContainer/Control/Panel/PlayersNumber, "Não foi possível sortear com as restrições atuais.")
+		UiManager.message_bubble.show_message($CenterContainer/Control/Panel/ParticipantsNumber, "Não foi possível sortear com as restrições atuais.")

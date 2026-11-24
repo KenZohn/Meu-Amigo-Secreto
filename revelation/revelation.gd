@@ -26,14 +26,14 @@ func reveal_name(code: String) -> String:
 	var length_code := metadata[1] + metadata[3]
 	var original_length := base62_decode(length_code)
 	
-	var player_name := ""
+	var participant_name := ""
 	
 	for i in 15:
 		var index := Constants.ALPHABET.find(encrypted[i])
 		var key := (seconds + i) % Constants.ALPHABET.length()
-		player_name += Constants.ALPHABET[(index - key + Constants.ALPHABET.length()) % Constants.ALPHABET.length()]
+		participant_name += Constants.ALPHABET[(index - key + Constants.ALPHABET.length()) % Constants.ALPHABET.length()]
 	
-	return player_name.substr(0, original_length)
+	return participant_name.substr(0, original_length)
 
 
 func _input(event: InputEvent) -> void:

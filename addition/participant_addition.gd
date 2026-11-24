@@ -1,6 +1,6 @@
 extends Control
 
-@onready var players_container = $CenterContainer/Control/Panel/PlayersArea/ScrollContainer/VBoxContainer
+@onready var participants_container = $CenterContainer/Control/Panel/ParticipantsArea/ScrollContainer/VBoxContainer
 
 const MESSAGES = [
 	"Quem vai participar?",
@@ -9,81 +9,91 @@ const MESSAGES = [
 
 
 func _ready() -> void:
-	load_players()
+	load_participants()
 	
-	PlayerManager.restrictions.clear()
+	ParticipantManager.restrictions.clear()
 	
 	$CenterContainer/Control/Instruction.show_massage(MESSAGES)
 
 
-func add_player(player_name = "") -> void:
-	var player = preload(Scene.PARTICIPANT_ADDITION_CARD).instantiate()
-	var name_field = player.get_node("Name")
+func add_participant(participant_name = "") -> void:
+	var participant = preload(Scene.PARTICIPANT_ADDITION_CARD).instantiate()
+	var name_field = participant.get_node("Name")
 	
-	player.deleted.connect(_on_player_deleted)
-	player.enter_pressed.connect(add_player)
+	participant.deleted.connect(_on_participant_deleted)
+	participant.enter_pressed.connect(add_participant)
 	
 	name_field.text_changed.connect(_on_name_text_changed.bind(name_field))
 	
-	players_container.add_child(player)
+	participants_container.add_child(participant)
 	
-	update_players_number()
-	await get_tree().process_frame
+	name_field.text = participant_name
+	name_field.grab_focus()
+	$CenterContainer/Control/Panel/ParticipantsArea/ScrollContainer.ensure_control_visible(name_field)
 	
-	name_field.text = player_name
+	update_participants_number()
+	#await get_tree().process_frame
 	
-	await focus_control(name_field)
+	#name_field.text = participant_name
+	
+	#focus_control(name_field)
 
 
-func update_players_number() -> void:
-	var players = players_container.get_children()
+func update_participants_number() -> void:
+	var participants = participants_container.get_children()
 	
-	for i in players.size():
-		players[i].set_number(i + 1)
+	for i in participants.size():
+		participants[i].set_number(i + 1)
 	
-	$CenterContainer/Control/Panel/PlayersNumber/Value.text = str(players.size())
+	$CenterContainer/Control/Panel/ParticipantsNumber/Value.text = str(participants.size())
 
 
-func load_players():
-	if PlayerManager.players:
-		for player in PlayerManager.players:
-			add_player(player)
-	else:
-		add_player()
-
-
-func get_players_name() -> bool:
-	var names: Array[String] = []
-	var players = players_container.get_children()
-	
-	for player in players:
-		var name_field = player.get_node("Name")
-		var player_name = name_field.text.strip_edges()
+func load_participants():
+	if ParticipantManager.participants:
+		for participant in ParticipantManager.participants:
+			add_participant(participant)
 		
-		if player_name.is_empty() or names.has(player_name):
+		await get_tree().process_frame
+		var focus_owner = get_viewport().gui_get_focus_owner()
+		
+		if focus_owner:
+			focus_owner.release_focus()
+	else:
+		add_participant()
+
+
+func get_participants_name() -> bool:
+	var names: Array[String] = []
+	var participants = participants_container.get_children()
+	
+	for participant in participants:
+		var name_field = participant.get_node("Name")
+		var participant_name = name_field.text.strip_edges()
+		
+		if participant_name.is_empty() or names.has(participant_name):
 			await focus_control(name_field)
 			
-			if player_name.is_empty():
+			if participant_name.is_empty():
 				UiManager.message_bubble.show_message(name_field, "Insira um nome.")
-			elif names.has(player_name):
+			elif names.has(participant_name):
 				UiManager.message_bubble.show_message(name_field, "Nome duplicado.")
 			
 			return false
 		
-		names.append(player_name)
+		names.append(participant_name)
 	
-	if players.size() < 3:
+	if participants.size() < 3:
 		UiManager.message_bubble.show_message($CenterContainer/Control/Panel/AddButton, "Mínimo de 3 participantes.")
 		return false
 	
-	PlayerManager.players = names
+	ParticipantManager.participants = names
 	return true
 
 
 func focus_control(field):
 	field.grab_focus()
 	
-	$CenterContainer/Control/Panel/PlayersArea/ScrollContainer.ensure_control_visible(field)
+	$CenterContainer/Control/Panel/ParticipantsArea/ScrollContainer.ensure_control_visible(field)
 	await get_tree().process_frame
 
 
@@ -116,17 +126,17 @@ func _on_name_text_changed(new_text: String, name_field: LineEdit) -> void:
 
 
 func _on_add_button_pressed() -> void:
-	add_player()
+	add_participant()
 
 
-func _on_player_deleted() -> void:
+func _on_participant_deleted() -> void:
 	await get_tree().process_frame
 	
-	update_players_number()
+	update_participants_number()
 
 
 func _on_next_button_pressed() -> void:
-	if await get_players_name():
+	if await get_participants_name():
 		Transition.change_screen(load(Scene.RESTRICTION_ADDITION))
 
 

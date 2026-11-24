@@ -1,5 +1,5 @@
 extends Node
 
-var players: Array[String] = []
+var participants: Array[String] = []
 var restrictions: Dictionary = {}
 var sort: Dictionary = {}

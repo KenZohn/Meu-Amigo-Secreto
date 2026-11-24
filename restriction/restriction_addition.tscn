@@ -18,7 +18,7 @@ region = Rect2(34, 2, 28, 28)
 atlas = ExtResource("3_fq17q")
 region = Rect2(272, 16, 16, 16)
 
-[node name="Restrictions" type="Control" unique_id=846800516]
+[node name="RestrictionAddition" type="Control" unique_id=846800516]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -89,7 +89,7 @@ text = "RESTRIÇÕES"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="PlayersArea" type="NinePatchRect" parent="CenterContainer/Control/Panel" unique_id=1258454991]
+[node name="ParticipantsArea" type="NinePatchRect" parent="CenterContainer/Control/Panel" unique_id=1258454991]
 layout_mode = 0
 offset_left = 16.0
 offset_top = 48.0
@@ -102,7 +102,7 @@ patch_margin_top = 4
 patch_margin_right = 4
 patch_margin_bottom = 4
 
-[node name="ScrollContainer" type="ScrollContainer" parent="CenterContainer/Control/Panel/PlayersArea" unique_id=859637234]
+[node name="ScrollContainer" type="ScrollContainer" parent="CenterContainer/Control/Panel/ParticipantsArea" unique_id=859637234]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -115,7 +115,7 @@ grow_horizontal = 2
 grow_vertical = 2
 vertical_scroll_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/Control/Panel/PlayersArea/ScrollContainer" unique_id=1435038645]
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/Control/Panel/ParticipantsArea/ScrollContainer" unique_id=1435038645]
 layout_mode = 2
 
 [node name="NextButton" parent="CenterContainer/Control/Panel" unique_id=374186222 instance=ExtResource("3_g6hvf")]
@@ -126,7 +126,7 @@ offset_right = 312.0
 offset_bottom = 272.0
 button_icon = SubResource("AtlasTexture_66jy8")
 
-[node name="PlayersNumber" type="NinePatchRect" parent="CenterContainer/Control/Panel" unique_id=898386887]
+[node name="ParticipantsNumber" type="NinePatchRect" parent="CenterContainer/Control/Panel" unique_id=898386887]
 layout_mode = 0
 offset_left = 16.0
 offset_top = 240.0
@@ -139,7 +139,7 @@ patch_margin_top = 8
 patch_margin_right = 8
 patch_margin_bottom = 8
 
-[node name="Icon" type="TextureRect" parent="CenterContainer/Control/Panel/PlayersNumber" unique_id=1542592432]
+[node name="Icon" type="TextureRect" parent="CenterContainer/Control/Panel/ParticipantsNumber" unique_id=1542592432]
 layout_mode = 0
 offset_left = 6.0
 offset_top = 4.0
@@ -148,7 +148,7 @@ offset_bottom = 28.0
 texture = SubResource("AtlasTexture_0gup6")
 expand_mode = 1
 
-[node name="Value" type="Label" parent="CenterContainer/Control/Panel/PlayersNumber" unique_id=1239562817]
+[node name="Value" type="Label" parent="CenterContainer/Control/Panel/ParticipantsNumber" unique_id=1239562817]
 layout_mode = 0
 offset_left = 32.0
 offset_top = 4.0

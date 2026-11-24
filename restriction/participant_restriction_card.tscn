@@ -8,7 +8,7 @@
 atlas = ExtResource("2_rqp8x")
 region = Rect2(848, 224, 16, 16)
 
-[node name="PlayerRestriciton" type="Control" unique_id=207675311]
+[node name="ParticipantRestricitonCard" type="Control" unique_id=207675311]
 custom_minimum_size = Vector2(264, 32)
 layout_mode = 3
 anchors_preset = 0

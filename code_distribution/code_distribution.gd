@@ -22,13 +22,13 @@ func base62_encode(value: int, length: int) -> String:
 	return result
 
 
-func generate_code(player_name: String, seconds: int) -> String:
-	var name_length := player_name.length()
+func generate_code(participant_name: String, seconds: int) -> String:
+	var name_length := participant_name.length()
 	
-	while player_name.length() < 15:
-		var i := player_name.length()
-		var index := (seconds + i * 13 + player_name.to_utf8_buffer()[0]) % Constants.ALPHABET.length()
-		player_name += Constants.ALPHABET[index]
+	while participant_name.length() < 15:
+		var i := participant_name.length()
+		var index := (seconds + i * 13 + participant_name.to_utf8_buffer()[0]) % Constants.ALPHABET.length()
+		participant_name += Constants.ALPHABET[index]
 	
 	var time_code := base62_encode(seconds, 3)
 	var length_code := base62_encode(name_length, 2)
@@ -38,7 +38,7 @@ func generate_code(player_name: String, seconds: int) -> String:
 	var encrypted := ""
 	
 	for i in 15:
-		var index := Constants.ALPHABET.find(player_name[i])
+		var index := Constants.ALPHABET.find(participant_name[i])
 		var key := (seconds + i) % Constants.ALPHABET.length()
 		encrypted += Constants.ALPHABET[(index + key) % Constants.ALPHABET.length()]
 	
@@ -52,16 +52,16 @@ func show_code_card() -> void:
 	
 	var number := 1
 	
-	for player in PlayerManager.sort:
-		var crypted = generate_code(PlayerManager.sort[player], seconds)
+	for participant in ParticipantManager.sort:
+		var crypted = generate_code(ParticipantManager.sort[participant], seconds)
 		
 		var code_card = preload(Scene.CODE_CARD).instantiate()
 		
 		code_card.get_node("Number").text = str(number) + "."
-		code_card.get_node("Name").text = player
+		code_card.get_node("Name").text = participant
 		code_card.get_node("CodePanel/Code").text = crypted
 		
-		$CenterContainer/Control/Panel/PlayersArea/ScrollContainer/VBoxContainer.add_child(code_card)
+		$CenterContainer/Control/Panel/ParticipantsArea/ScrollContainer/VBoxContainer.add_child(code_card)
 		
 		number += 1
 

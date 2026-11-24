@@ -18,7 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 Scene="*uid://dvq0ppwgdscsf"
-PlayerManager="*uid://bw2t1knw8xyjg"
+ParticipantManager="*uid://bw2t1knw8xyjg"
 AudioManager="*uid://chsl448g1svf6"
 Audio="*uid://b41evwv7gpghe"
 Transition="*uid://douyha2xu25mk"
