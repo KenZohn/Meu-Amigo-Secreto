@@ -27,16 +27,12 @@ func add_participant(participant_name = "") -> void:
 	
 	participants_container.add_child(participant)
 	
-	name_field.text = participant_name
-	name_field.grab_focus()
-	$CenterContainer/Control/Panel/ParticipantsArea/ScrollContainer.ensure_control_visible(name_field)
-	
 	update_participants_number()
-	#await get_tree().process_frame
+	await get_tree().process_frame
 	
-	#name_field.text = participant_name
+	name_field.text = participant_name
 	
-	#focus_control(name_field)
+	await focus_control(name_field)
 
 
 func update_participants_number() -> void:
