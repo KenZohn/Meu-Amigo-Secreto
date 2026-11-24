@@ -17,7 +17,7 @@ func _ready() -> void:
 
 
 func add_player(player_name = "") -> void:
-	var player = preload(Scene.PLAYER_CARD).instantiate()
+	var player = preload(Scene.PARTICIPANT_ADDITION_CARD).instantiate()
 	var name_field = player.get_node("Name")
 	
 	player.deleted.connect(_on_player_deleted)

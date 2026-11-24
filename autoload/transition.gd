@@ -4,7 +4,7 @@ var current_screen: Control
 
 
 func change_screen(scene: PackedScene, animation: String = "pop_up") -> void:
-	get_tree().current_scene.message_bubble.hide_message()
+	UiManager.message_bubble.hide_message()
 	
 	$AnimationPlayer.play(animation + "_out" )
 	

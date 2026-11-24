@@ -36,6 +36,12 @@ func reveal_name(code: String) -> String:
 	return player_name.substr(0, original_length)
 
 
+func _input(event: InputEvent) -> void:
+	if event is InputEventMouseButton and event.pressed:
+		if get_viewport().gui_get_focus_owner() is LineEdit:
+			get_viewport().gui_get_focus_owner().release_focus()
+
+
 func _on_paste_button_pressed() -> void:
 	code_field.text = DisplayServer.clipboard_get()
 

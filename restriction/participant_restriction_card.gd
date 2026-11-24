@@ -17,7 +17,7 @@ func update_size() -> void:
 
 
 func add_restricted(restricted_player_name) -> void:
-	var restricted_player = preload(Scene.PLAYER_RESTRICTED_CARD).instantiate()
+	var restricted_player = preload(Scene.PARTICIPANT_RESTRICTED_CARD).instantiate()
 	
 	$RestrictedContainer.add_child(restricted_player)
 	

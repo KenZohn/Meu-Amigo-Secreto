@@ -73,7 +73,7 @@ offset_right = 60.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
-button_text = "NOVO JOGO"
+button_text = "SORTEAR"
 
 [node name="RevealButton" parent="CenterContainer/Control" unique_id=743966031 instance=ExtResource("3_pelf0")]
 layout_mode = 0

@@ -105,6 +105,7 @@ _data = {
 [node name="ConfirmationDialog" type="CanvasLayer" unique_id=414032111]
 process_mode = 3
 layer = 10
+visible = false
 script = ExtResource("1_lepvw")
 
 [node name="Background" type="ColorRect" parent="." unique_id=50914067]

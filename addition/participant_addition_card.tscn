@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ih5hhtpah2iu"]
 
-[ext_resource type="Script" uid="uid://bg8tr8xd6tu7b" path="res://player_addition/player_card.gd" id="1_xwtd4"]
+[ext_resource type="Script" uid="uid://bg8tr8xd6tu7b" path="res://addition/participant_addition_card.gd" id="1_xwtd4"]
 [ext_resource type="Texture2D" uid="uid://dneco8vsl13dv" path="res://asset/sprout_lands/ui/ui.png" id="2_hb5cn"]
 [ext_resource type="PackedScene" uid="uid://dk68n4r6i6ay3" path="res://ui/button.tscn" id="3_owv5i"]
 

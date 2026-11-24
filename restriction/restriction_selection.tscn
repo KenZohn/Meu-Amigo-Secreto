@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://chaljok4a67uc"]
 
-[ext_resource type="Script" uid="uid://dvi6po6xj3h7g" path="res://restriction_addition/restriction_selection.gd" id="1_7jqmd"]
+[ext_resource type="Script" uid="uid://dvi6po6xj3h7g" path="res://restriction/restriction_selection.gd" id="1_7jqmd"]
 [ext_resource type="PackedScene" uid="uid://c527cj1iyduoy" path="res://ui/instruction.tscn" id="2_0y2eg"]
 [ext_resource type="PackedScene" uid="uid://dk68n4r6i6ay3" path="res://ui/button.tscn" id="2_7jqmd"]
 [ext_resource type="Texture2D" uid="uid://dneco8vsl13dv" path="res://asset/sprout_lands/ui/ui.png" id="3_0y2eg"]

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c7vl2gxq52jvq"]
 
-[ext_resource type="Script" uid="uid://ckk45dsm2jcov" path="res://restriction_addition/player_selection_card.gd" id="1_lbft6"]
+[ext_resource type="Script" uid="uid://ckk45dsm2jcov" path="res://restriction/participant_selection_card.gd" id="1_lbft6"]
 [ext_resource type="Texture2D" uid="uid://dneco8vsl13dv" path="res://asset/sprout_lands/ui/ui.png" id="2_lbft6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x7t68"]

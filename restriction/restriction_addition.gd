@@ -22,7 +22,7 @@ func load_players():
 
 
 func add_player(player_name) -> void:
-	var player = preload(Scene.PLAYER_RESTRICTION_CARD).instantiate()
+	var player = preload(Scene.PARTICIPANT_RESTRICTION_CARD).instantiate()
 	
 	player.get_node("Name").text = player_name
 	
@@ -146,18 +146,13 @@ func sort_result(result: Dictionary) -> Dictionary:
 
 func _on_return_button_pressed() -> void:
 	if PlayerManager.restrictions:
-		var confirmation_dialog = preload(Scene.CONFIRMATION_DIALOG).instantiate()
-			
-		confirmation_dialog.show_dialog("As restrições serão perdidas. Deseja voltar à tela anterior?")
-		
-		confirmation_dialog.confirm.connect(
+		UiManager.show_confirmation(
+			"As restrições serão perdidas. Deseja voltar à tela anterior?",
 			func():
-				Transition.change_screen(load(Scene.PLAYER_ADDITION))
+				Transition.change_screen(load(Scene.PARTICIPANT_ADDITION))
 		)
-		
-		add_child(confirmation_dialog)
 	else:
-		Transition.change_screen(load(Scene.PLAYER_ADDITION))
+		Transition.change_screen(load(Scene.PARTICIPANT_ADDITION))
 
 
 func _on_next_button_pressed() -> void:
@@ -167,15 +162,10 @@ func _on_next_button_pressed() -> void:
 		if one_cicle:
 			Transition.change_screen(load(Scene.CODE_DISTRIBUTION))
 		else:
-			var confirmation_dialog = preload(Scene.CONFIRMATION_DIALOG).instantiate()
-			
-			confirmation_dialog.show_dialog("Não foi possível encontrar um único ciclo. Continuar mesmo assim?")
-			
-			confirmation_dialog.confirm.connect(
+			UiManager.show_confirmation(
+				"Não foi possível encontrar um único ciclo. Continuar mesmo assim?",
 				func():
 					Transition.change_screen(load(Scene.CODE_DISTRIBUTION))
 			)
-			
-			add_child(confirmation_dialog)
 	else:
 		UiManager.message_bubble.show_message($CenterContainer/Control/Panel/PlayersNumber, "Não foi possível sortear com as restrições atuais.")

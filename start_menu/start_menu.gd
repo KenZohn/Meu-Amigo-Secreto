@@ -21,7 +21,7 @@ func _ready() -> void:
 
 
 func _on_new_game_button_pressed() -> void:
-	Transition.change_screen(load(Scene.PLAYER_ADDITION))
+	Transition.change_screen(load(Scene.PARTICIPANT_ADDITION))
 
 
 func _on_reveal_button_pressed() -> void:

@@ -67,26 +67,16 @@ func show_code_card() -> void:
 
 
 func _on_return_button_pressed() -> void:
-	var confirmation_dialog = preload(Scene.CONFIRMATION_DIALOG).instantiate()
-	
-	confirmation_dialog.show_dialog("Os códigos sorteados serão perdidos. Deseja voltar à tela anterior?")
-	
-	confirmation_dialog.confirm.connect(
+	UiManager.show_confirmation(
+		"Os códigos sorteados serão perdidos. Deseja voltar à tela anterior?",
 		func():
 			Transition.change_screen(load(Scene.RESTRICTION_ADDITION))
 	)
-	
-	add_child(confirmation_dialog)
 
 
 func _on_end_button_pressed() -> void:
-	var confirmation_dialog = preload(Scene.CONFIRMATION_DIALOG).instantiate()
-	
-	confirmation_dialog.show_dialog("Deseja finalizar e voltar à tela inicial?")
-	
-	confirmation_dialog.confirm.connect(
+	UiManager.show_confirmation(
+		"Deseja finalizar e voltar à tela inicial?",
 		func():
 			Transition.change_screen(load(Scene.START_MENU))
 	)
-	
-	add_child(confirmation_dialog)

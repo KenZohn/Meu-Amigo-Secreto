@@ -25,7 +25,7 @@ func _ready() -> void:
 
 
 func load_players() -> void:
-	var player_selection_card = preload(Scene.PLAYER_SELECTION_CARD)
+	var player_selection_card = preload(Scene.PARTICIPANT_SELECTION_CARD)
 	
 	for player in PlayerManager.players:
 		if player == player_name:
