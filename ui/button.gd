@@ -29,6 +29,12 @@ extends Button
 
 @export var pressed_texture: Texture2D
 
+const DRAG_THRESHOLD = 10.0
+
+var touch_start_position := Vector2.ZERO
+var touch_moved := false
+var touching := false
+
 
 func _ready() -> void:
 	$Label.text = button_text
@@ -36,6 +42,21 @@ func _ready() -> void:
 	
 	$MarginContainer/Icon.texture = button_icon
 	$MarginContainer/Icon.visible = button_icon != null
+
+
+func _input(event: InputEvent) -> void:
+	if event is InputEventScreenTouch:
+		if event.pressed:
+			touching = get_global_rect().has_point(event.position)
+			touch_start_position = event.position
+			touch_moved = false
+		else:
+			touching = false
+
+	elif event is InputEventScreenDrag and touching:
+		if touch_start_position.distance_to(event.position) > DRAG_THRESHOLD:
+			touch_moved = true
+			release_focus()
 
 
 func _on_button_up() -> void:

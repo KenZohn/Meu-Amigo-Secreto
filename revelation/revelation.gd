@@ -7,6 +7,12 @@ func _ready() -> void:
 	code_field.grab_focus()
 
 
+func _input(event: InputEvent) -> void:
+	if event is InputEventMouseButton and event.pressed:
+		if get_viewport().gui_get_focus_owner() is LineEdit:
+			get_viewport().gui_get_focus_owner().release_focus()
+
+
 func base62_decode(value: String) -> int:
 	var result := 0
 	
@@ -34,12 +40,6 @@ func reveal_name(code: String) -> String:
 		participant_name += Constants.ALPHABET[(index - key + Constants.ALPHABET.length()) % Constants.ALPHABET.length()]
 	
 	return participant_name.substr(0, original_length)
-
-
-func _input(event: InputEvent) -> void:
-	if event is InputEventMouseButton and event.pressed:
-		if get_viewport().gui_get_focus_owner() is LineEdit:
-			get_viewport().gui_get_focus_owner().release_focus()
 
 
 func _on_paste_button_pressed() -> void:

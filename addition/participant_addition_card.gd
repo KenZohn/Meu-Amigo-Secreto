@@ -4,14 +4,14 @@ signal deleted
 signal enter_pressed
 
 
-func set_number(number: int) -> void:
-	$Number.text = str(number) + "."
-
-
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.pressed:
 		if get_viewport().gui_get_focus_owner() is LineEdit:
 			get_viewport().gui_get_focus_owner().release_focus()
+
+
+func set_number(number: int) -> void:
+	$Number.text = str(number) + "."
 
 
 func _on_name_text_submitted(_text: String) -> void:
