@@ -35,7 +35,7 @@ func update_participants_number() -> void:
 	for i in participants.size():
 		participants[i].set_number(i + 1)
 	
-	$CenterContainer/Control/Panel/ParticipantsNumber/Value.text = str(participants.size())
+	$CenterContainer/Control/Panel/ParticipantsNumber.set_value(str(participants.size()))
 
 
 func draw_names() -> Dictionary:

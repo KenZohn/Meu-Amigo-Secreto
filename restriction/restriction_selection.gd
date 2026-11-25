@@ -39,8 +39,7 @@ func load_participants() -> void:
 		
 		if ParticipantManager.restrictions.has(participant_name):
 			if participant_selection_name.text in ParticipantManager.restrictions[participant_name]:
-				participant_selection.selected = true
-				participant_selection.get_node("Icon").visible = true
+				participant_selection.set_selected()
 		
 		selection_container.add_child(participant_selection)
 

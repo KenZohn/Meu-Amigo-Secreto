@@ -1,4 +1,14 @@
+@tool
 extends Control
+
+@export var unselected_texture: Texture2D:
+	set(value):
+		unselected_texture = value
+		
+		if has_node("Background"):
+			$Background.texture = value
+
+@export var selected_texture: Texture2D
 
 const DRAG_THRESHOLD := 10.0
 
@@ -8,6 +18,31 @@ var restriction_selection: CanvasLayer
 var touching := false
 var touch_moved := false
 var touch_distance := 0.0
+
+
+func select_participant() -> void:
+	if restriction_selection:
+		if not restriction_selection.can_select_restriction(self):
+			return
+	
+	AudioManager.play_sound(Audio.CONFIRM)
+	
+	selected = not selected
+	$Icon.visible = selected
+	
+	if selected:
+		$Background.texture = selected_texture
+		$Name.position.y += 2
+	else:
+		$Background.texture = unselected_texture
+		$Name.position.y -= 2
+
+
+func set_selected():
+	selected = true
+	$Icon.visible = true
+	$Background.texture = selected_texture
+	$Name.position.y += 2
 
 
 func _on_gui_input(event: InputEvent) -> void:
@@ -46,14 +81,3 @@ func _on_gui_input(event: InputEvent) -> void:
 			
 			if touch_distance > DRAG_THRESHOLD:
 				touch_moved = true
-
-
-func select_participant() -> void:
-	if restriction_selection:
-		if not restriction_selection.can_select_restriction(self):
-			return
-	
-	AudioManager.play_sound(Audio.CONFIRM)
-	
-	selected = not selected
-	$Icon.visible = selected
