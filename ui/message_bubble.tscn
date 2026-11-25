@@ -3,18 +3,6 @@
 [ext_resource type="Script" uid="uid://da55cvmsqc0uj" path="res://ui/message_bubble.gd" id="1_x3se2"]
 [ext_resource type="Texture2D" uid="uid://nh6mygqsl241" path="res://asset/sprout_lands/ui/speech_bubble.png" id="2_oqvdu"]
 
-[sub_resource type="Animation" id="Animation_x3se2"]
-length = 0.001
-
-[sub_resource type="Animation" id="Animation_21gcv"]
-resource_name = "pop_up"
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_vhnqw"]
-_data = {
-&"RESET": SubResource("Animation_x3se2"),
-&"pop_up": SubResource("Animation_21gcv")
-}
-
 [node name="MessageBubble" type="PanelContainer" unique_id=1007026409]
 process_mode = 3
 self_modulate = Color(1, 1, 1, 0)
@@ -46,9 +34,6 @@ theme_override_font_sizes/font_size = 12
 
 [node name="DisplayTimer" type="Timer" parent="." unique_id=508219382]
 one_shot = true
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=235753958]
-libraries/ = SubResource("AnimationLibrary_vhnqw")
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
 [connection signal="timeout" from="DisplayTimer" to="." method="_on_display_timer_timeout"]
