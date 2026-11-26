@@ -4,6 +4,18 @@ Meu Amigo Secreto é um sorteador de amigo secreto desenvolvido no Godot.
 
 Link do aplicativo: https://kenzohn.github.io/Meu-Amigo-Secreto/
 
+## Como Utilizar
+
+### Sortear
+- Adicione os participantes
+- Selecione quem não pode tirar quem
+- Copie e envie os códigos para cada um dos participantes
+
+### Revelar
+- Insira o código e revele
+
+## Informações
+
 ### Funcionalidades
 - Adição dos participantes. Tem um limite de 15 caracteres, para limitar o tamanho do código gerado.
 - Seleção dos restritos (quem não pode tirar quem).
@@ -17,12 +29,4 @@ Link do aplicativo: https://kenzohn.github.io/Meu-Amigo-Secreto/
 ### Assets
 - Cup Nooble (https://cupnooble.itch.io/)
 
-## Como Utilizar
 
-### Sortear
-- Adicione os participantes
-- Selecione quem não pode tirar quem
-- Copie e envie os códigos para cada um dos participantes
-
-### Revelar
-- Insira o código e revele
