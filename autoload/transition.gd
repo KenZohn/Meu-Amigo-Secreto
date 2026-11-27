@@ -1,13 +1,18 @@
 extends CanvasLayer
 
 var current_screen: Control
+var transitioning := false
 
 
 func change_screen(scene: PackedScene, animation: String = "pop_up") -> void:
+	if transitioning:
+		return
+	
+	transitioning = true
+	
 	UiManager.message_bubble.hide_message()
 	
 	$AnimationPlayer.play(animation + "_out" )
-	
 	await $AnimationPlayer.animation_finished
 	
 	var new_screen = scene.instantiate()
@@ -20,6 +25,8 @@ func change_screen(scene: PackedScene, animation: String = "pop_up") -> void:
 	
 	$AnimationPlayer.play(animation + "_in")
 	await $AnimationPlayer.animation_finished
+	
+	transitioning = false
 
 
 func fade_out():

@@ -30,7 +30,8 @@ func reveal_name(code: String) -> String:
 	var seconds := base62_decode(time_code)
 	
 	var length_code := metadata[1] + metadata[3]
-	var original_length := base62_decode(length_code)
+	var encrypted_length := base62_decode(length_code)
+	var original_length := posmod(encrypted_length - seconds, 3844)
 	
 	var participant_name := ""
 	
@@ -38,6 +39,12 @@ func reveal_name(code: String) -> String:
 		var index := Constants.ALPHABET.find(encrypted[i])
 		var key := (seconds + i) % Constants.ALPHABET.length()
 		participant_name += Constants.ALPHABET[(index - key + Constants.ALPHABET.length()) % Constants.ALPHABET.length()]
+	
+	print("Seconds: ", seconds)
+	print("Encrypted length: ", encrypted_length)
+	print("Original length: ", original_length)
+	print("Decoded name: ", participant_name)
+	
 	
 	return participant_name.substr(0, original_length)
 

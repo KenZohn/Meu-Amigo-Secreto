@@ -31,7 +31,8 @@ func generate_code(participant_name: String, seconds: int) -> String:
 		participant_name += Constants.ALPHABET[index]
 	
 	var time_code := base62_encode(seconds, 3)
-	var length_code := base62_encode(name_length, 2)
+	var encrypted_length := (name_length + seconds) % 3844
+	var length_code := base62_encode(encrypted_length, 2)
 	
 	var metadata := time_code[0] + length_code[0] + time_code[1] + length_code[1] + time_code[2]
 	

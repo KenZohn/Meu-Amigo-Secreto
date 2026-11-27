@@ -83,5 +83,40 @@ offset_right = 60.0
 offset_bottom = 60.0
 button_text = "REVELAR"
 
+[node name="Label" type="Label" parent="CenterContainer/Control" unique_id=593606918]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -79.5
+offset_top = 144.0
+offset_right = 79.5
+offset_bottom = 172.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/line_spacing = 0
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 10
+text = "Desenvolvido por Johnny Mukai
+Assets por Cup Nooble"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="CenterContainer/Control" unique_id=2063451221]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = 136.0
+offset_right = 100.0
+offset_bottom = 140.0
+grow_horizontal = 2
+grow_vertical = 0
+
 [connection signal="pressed" from="CenterContainer/Control/NewGameButton" to="." method="_on_new_game_button_pressed"]
 [connection signal="pressed" from="CenterContainer/Control/RevealButton" to="." method="_on_reveal_button_pressed"]
